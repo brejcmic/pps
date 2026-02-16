@@ -2,6 +2,79 @@
 
 % =====================================================================================================================
   \begin{frame}
+    \frametitle{Hledání nejvyšších mocnin základu}
+    \boldmath
+    \textbf{Je to stejné jako pro celá čísla - univerzální postup}
+    
+    \vspace{5mm}
+    Převádíme $(0,78125)_{10}=(0,11001)_{2}$
+    
+		\begin{center}
+      \begin{tabular}{p{10mm} p{20mm} p{50mm} | p{10mm}}
+        $2^{-1}$ & $0,5$ & $0,78125 - 0,5 = 0,28125$ & 1 \\
+        $2^{-2}$ & $0,25$ & $0,28125-0,25=0,03125$ & 1 \\
+        $2^{-3}$ & $0,125$ & $>0,03125$ & 0 \\
+        $2^{-4}$ & $0,0625$ & $>0,03125$ & 0 \\
+        $2^{-5}$ & $0,03125$ & $0,03125-0,03125=0$ & 1 \\
+        $2^{-6}$ & $0,015625$ & $>0$ & 0 \\
+        $2^{-7}$ & $0,0078125$ & $>0$ & 0 \\
+      \end{tabular}
+    \end{center}
+    \vspace{5mm}
+    Hledání mocnin převrácených hodnot základů je v praxi hrozná věc.
+	\end{frame}
+
+% =====================================================================================================================
+  \begin{frame}
+    \frametitle{Neceločíselná část - postupné násobení základem}
+		
+		Vychází přímo ze zápisu polynomu:
+      \small
+			\boldmath
+			\begin{align*}
+			H =\textcolor{red}{0} +, a_{-1} \cdot Z^{-1} + a_{-2} \cdot Z^{-2} + ...
+			\end{align*}
+		
+		Po provedení násobení základem soustavy dostaneme:
+      \small
+			\boldmath
+			\begin{align*}
+			H =\textcolor{red}{a_{-1} \cdot Z^{0}} +, a_{-2} \cdot Z^{-1} + a_{-3} \cdot Z^{-2} + ...
+			\end{align*}
+      \normalsize
+    Koeficient nejvíce vlevo se objevil v celočíselné části (před řádovou čárkou). Opět je to velmi dobře patrné pro desítkovou soustavu:
+      \small
+    	\begin{center}
+        \begin{tabular}{p{70mm} | p{20mm}}
+        $H = 0,125 = 1 \cdot 10^{-1} + 2 \cdot 10^{-2} + 5 \cdot 10^{-3}$ & $\cdot 10$ \\
+        $H = 1,25 = 1 \cdot 10^0 + 2 \cdot 10^{-1} + 5 \cdot 10^{-2}$ & \\
+        $H = 0,25$ & celá část $1$
+        \end{tabular}
+      \end{center}
+	\end{frame}
+  
+% =====================================================================================================================
+  \begin{frame}
+    \frametitle{Neceločíselná část - postupné násobení základem}
+    \boldmath
+    Převádíme $(0,78125)_{10}=(0,11001)_{2}$
+
+		\begin{center}
+      \begin{tabular}{p{60mm} | p{15mm}}
+        $0,78125 \cdot 2 = \textcolor{red}{1},5625$ & 1 \\
+        $0,5625 \cdot 2 = \textcolor{red}{1},125$ & 1 \\
+        $0,125 \cdot 2 = 0,25$ & 0 \\
+        $0,25 \cdot 2 = 0,5$ & 0 \\
+        $0,5 \cdot 2 = \textcolor{red}{1},0$ & 1 \\
+        $0 \cdot 2 = 0$ & 0 \\
+        ... & ... \\
+      \end{tabular}
+    \end{center}
+    Číslice musíme číst shora dolů.
+	\end{frame}
+
+% =====================================================================================================================
+  \begin{frame}
     \frametitle{Řádová mřížka - pevná řádová čárka}
 		
 		\begin{minipage}[t][0.2\textheight][t]{\textwidth}
