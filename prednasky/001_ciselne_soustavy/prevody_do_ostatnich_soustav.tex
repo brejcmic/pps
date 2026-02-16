@@ -1,0 +1,208 @@
+\section{\texorpdfstring{Převody do ostatních soustav}{Prevody do ostatnich soustav}}
+
+% =====================================================================================================================
+  \begin{frame}
+    \frametitle{Převod do ostatních soustav}
+    Vyjádření hodnoty v jakékoliv soustavě lze provést:
+    
+    
+    \begin{itemize}
+      \item \textbf{hledáním nejvyšších mocnin základu},
+      
+      \begin{itemize}
+        \item postup je univerzální pro celočíselnou i neceločíselnou část,
+        \item je nutné znát mocniny základu,
+        \item ve vyšších soustavách hledáme násobky mocnin základu, což ztěžuje výpočet. 
+      \end{itemize}
+      
+      \item \textbf{postupným dělením základem}.
+      
+      \begin{itemize}
+        \item velmi rychlý výpočet pro dvojkovou soustavu,
+        \item postup přechází na postupné násobení u neceločíselné části,
+        \item hledáme \textcolor{red}{\textbf{zbytky}} po dělení, které je nakonec nutné \textcolor{red}{\textbf{zapsat v obráceném pořadí}} (POZOR při testu)
+      \end{itemize}
+      
+    \end{itemize}
+		
+	\end{frame}
+  
+% =====================================================================================================================
+  \begin{frame}
+    \frametitle{Hledání nejvyšších mocnin základu}
+    \boldmath
+    Převádíme $(145)_{10}=(10010001)_{2}$
+
+		\begin{center}
+      \begin{tabular}{p{10mm} p{15mm} p{50mm} | p{10mm}}
+        $2^8$ & $256$ & $>145$ & 0 \\
+        $2^7$ & $128$ & $145-128=17$ & 1 \\
+        $2^6$ & $64$ & $>17$ & 0 \\
+        $2^5$ & $32$ & $>17$ & 0 \\
+        $2^4$ & $16$ & $17-16=1$ & 1 \\
+        $2^3$ & $8$ & $>1$ & 0 \\
+        $2^2$ & $4$ & $>1$ & 0 \\
+        $2^1$ & $2$ & $>1$ & 0 \\
+        $2^0$ & $1$ & $1-1 = 0$ & 1 \\
+      \end{tabular}
+    \end{center}
+	\end{frame}
+  
+% =====================================================================================================================
+  \begin{frame}
+    \frametitle{Hledání nejvyšších mocnin základu}
+    \boldmath
+    Převádíme $(177)_{10}=(261)_{8}$
+
+		\begin{center}
+      \begin{tabular}{p{10mm} p{15mm} p{50mm} | p{10mm}}
+        $8^4$ & $4096$ & $>177$ & 0 \\
+        $8^3$ & $512$ & $>177$ & 0 \\
+        $8^2$ & $64$ & $177-$\textcolor{red}{$2$}$\cdot 64=49$ & 2 \\
+        $8^1$ & $8$ & $49-$\textcolor{red}{$6$}$\cdot 8=1$ & 6 \\
+        $8^0$ & $1$ & $1-$\textcolor{red}{$1$}$\cdot 1=0$ & 1 \\
+      \end{tabular}
+    \end{center}
+    
+    Zbytek hodnoty na řádku musí být vždy menší než je mocnina základu na daném řádku.
+	\end{frame}
+  
+% =====================================================================================================================
+  \begin{frame}
+    \frametitle{Postupné dělení základem}
+
+    Vychází přímo ze zápisu polynomu:
+      \small
+			\boldmath
+			\begin{align*}
+			H =& ... + a_{1} \cdot Z^1 + a_{0} \cdot Z^0, + \:\textcolor{red}{0}
+			\end{align*}
+		
+		Po provedení dělení základem soustavy dostaneme:
+      \small
+			\boldmath
+			\begin{align*}
+			H =& ... + a_{2} \cdot Z^1 + a_{1} \cdot Z^0, + \:\textcolor{red}{a_{0} \cdot Z^{-1}}
+			\end{align*}
+      \normalsize
+    Koeficient nejvíce vpravo se objevil ve zbytku po dělení (za řádovou čárkou). Je to velmi dobře patrné pro desítkovou soustavu:
+      \small
+    	\begin{center}
+        \begin{tabular}{p{70mm} | p{20mm}}
+        $H = 138 = 1 \cdot 10^2 + 3 \cdot 10^1 + 8 \cdot 10^0$ & $/10$ \\
+        $H = 13,8 = 1 \cdot 10^1 + 3 \cdot 10^0 + 8 \cdot 10^{-1}$ & \\
+        $H = 13$ & zbytek $8$
+        \end{tabular}
+      \end{center}
+	\end{frame}
+  
+% =====================================================================================================================
+  \begin{frame}
+    \frametitle{Postupné dělení základem}
+    \boldmath
+    Převádíme $(145)_{10}=(10010001)_{2}$
+
+		\begin{center}
+      \begin{tabular}{p{60mm} | p{15mm}}
+        $145 / 2 = 72 + \textcolor{red}{1}/2$ & 1 \\
+        $72 / 2 = 36$ & 0 \\
+        $36 / 2 = 18$ & 0 \\
+        $18 / 2 = 9$ & 0 \\
+        $9 / 2 = 4 + \textcolor{red}{1}/2$ & 1 \\
+        $4 / 2 = 2$ & 0 \\
+        $2 / 2 = 1$ & 0 \\
+        $1 / 2 = 0 + \textcolor{red}{1}/2$ & 1 \\
+      \end{tabular}
+    \end{center}
+    Číslici musíme číst zdola nahoru.
+	\end{frame}
+	
+% =====================================================================================================================
+  \begin{frame}
+    \frametitle{Postupné dělení základem}
+    \boldmath
+    Převádíme $(177)_{10}=(261)_{8}$
+
+		\begin{center}
+      \begin{tabular}{p{60mm} | p{15mm}}
+        $177 / 8 = 22 + \textcolor{red}{1}/8$ & 1 \\
+        $22 / 8 = 2 + \textcolor{red}{6}/8$ & 6 \\
+        $2 / 8 = 0 + \textcolor{red}{2}/8$ & 2 \\
+      \end{tabular}
+    \end{center}
+    
+    \begin{itemize}
+      \item Pro vyšší soustavy je tento postup příjemnější než hledání nejvyšších mocnin.
+      \item \textbf{Nicméně, u testu nejsou povoleny kalkulačky!} Zároveň však jsou v testu jen soustavy 2, 8 a 16. Mezi těmito konkrétními soustavami lze provádět snadné převody.
+    \end{itemize}
+	\end{frame}
+	
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Převody mezi soustavami 2, 8 a 16}
+		\boldmath
+		Vytýkáme mocninu základu, zde $8 = 2^{3}$
+      \small
+			\begin{align*}
+			H =& (1100111)_2 = (001\:100\:111) = \\[2pt]
+			  =& 0 \cdot 2^{8} + 0 \cdot 2^{7} + 1 \cdot 2^{6} + ...\\ 
+				+& 1 \cdot 2^{5} + 0 \cdot 2^{4} + 0 \cdot 2^{3} + ...\\
+				+& 1 \cdot 2^{2} + 1 \cdot 2^{1} + 1 \cdot 2^{0} = \\[2pt]
+				=& (0 \cdot 2^{2} + 0 \cdot 2^{1} + 1 \cdot 2^{0}) \cdot 8^{2} + ...\\ 
+				+& (1 \cdot 2^{2} + 0 \cdot 2^{1} + 0 \cdot 2^{0}) \cdot 8^{1} + ...\\
+				+& (1 \cdot 2^{2} + 1\cdot 2^{1} + 1 \cdot 2^{0}) \cdot 8^{0} = \\[2pt]
+				=& (1) \cdot 8^{2} + ...\\ 
+				+& (4) \cdot 8^{1} + ...\\
+				+& (7) \cdot 8^{0} = \\[2pt]
+				=& (100011)_8
+			\end{align*}
+		
+	\end{frame}
+	
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Převody mezi soustavami 2, 8 a 16 - prakticky}
+		
+		\begin{minipage}[t][0.5\textheight][t]{\textwidth}
+			\boldmath
+			\begin{itemize}
+				\item Stejný způsob pro soustavu o základu 16, ale vytýkám 16 (4 pozice u binárního čísla).
+				\item Tento převod nelze provádět přímo mezi soustavami 16 a 8, protože 16 není některou mocninou 8!
+				\item Při převodu mezi soustavami 16 a 8 využívám převodu do soustavy 2.
+			\end{itemize}
+		\end{minipage}
+		
+		\begin{minipage}[t][0.4\textheight][t]{\textwidth}
+		\boldmath
+		\textbf{Příklad:}
+			\begin{align*}
+			H = (762)_8 =& (111\:110\:010)_2 = \\[3pt]
+			            =& (0001\:1111\:0010)_2 = (1F2)_{16}
+			\end{align*}
+		\end{minipage}
+		
+	\end{frame}
+	
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Převody mezi soustavami 2, 8 a 16 - prakticky}
+		
+		\begin{minipage}[t][0.5\textheight][t]{\textwidth}
+			\boldmath
+			\begin{itemize}
+				\item Stejný způsob pro soustavu o základu 16, ale vytýkám 16 (4 pozice u binárního čísla).
+				\item Tento převod nelze provádět přímo mezi soustavami 16 a 8, protože 16 není některou mocninou 8!
+				\item Při převodu mezi soustavami 16 a 8 využívám převodu do soustavy 2.
+			\end{itemize}
+		\end{minipage}
+		
+		\begin{minipage}[t][0.4\textheight][t]{\textwidth}
+		\boldmath
+		\textbf{Příklad:}
+			\begin{align*}
+			H = (762)_8 =& (111\:110\:010)_2 = \\[3pt]
+			            =& (0001\:1111\:0010)_2 = (1F2)_{16}
+			\end{align*}
+		\end{minipage}
+		
+	\end{frame}

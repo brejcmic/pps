@@ -1,0 +1,56 @@
+%Beamer class
+\documentclass{beamer}
+
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fontenc}
+\usepackage{tgheros}
+\usepackage{array}
+\usepackage{color}
+\usepackage{hyperref}
+
+\usepackage{amsmath} % viceradkove rovnice
+\usefonttheme[onlymath]{serif} % reprezentace rovnic v beamer
+
+
+\usetheme{AnnArbor}
+\usecolortheme{crane}
+
+
+\title[B1B13PPS]{B1B13PPS}
+\subtitle[PPS] {Průmyslové počítačové systémy}
+\author[Brejcha]{\texorpdfstring{Michal Brejcha\newline\url{brejcmic@fel.cvut.cz}}{Michal Brejcha}}
+\institute[+CVUT]{ČVUT v Praze, FEL}
+\date[Praha, 2025]{Praha, 2025}
+
+%------------------------------------------------------------------------------
+%Konstanty a definice
+%------------------------------------------------------------------------------
+
+\begin{document}
+%------------------------------------------------------------------------------
+%Uvodni slajd
+%------------------------------------------------------------------------------
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Obsah} 
+\tableofcontents
+\end{frame}
+
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Téma}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+
+\input{pozicni_ciselne_soustavy.tex}
+\input{prevody_do_desitkove_soustavy.tex}
+\input{prevody_do_ostatnich_soustav.tex}
+\input{necelociselna_cast_v_jinych_soustavach.tex}
+\input{priste.tex}
+
+\end{document}

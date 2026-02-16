@@ -1,0 +1,41 @@
+# -----------------------------------------------------------------------------
+# Omezeni pripon souboru pro verzovani projektu KEO
+# -----------------------------------------------------------------------------
+#vse globalne zakazano:
+*.*
+
+# -----------------------------------------------------------------------------
+# Povolene soubory
+# -----------------------------------------------------------------------------
+# gitingnore list
+!*.gitignore
+
+# dokumentace
+!*.txt
+!*.pdf
+!*.doc
+!*.docx
+!*.md
+!*.tex
+!*.xls
+!*.xlsx
+!*.cls
+
+# obrazky
+!*.png
+!*.jpg
+!*.bmp
+!*.jpeg
+
+# slovniky
+!*.dic
+!*.aff
+
+# simulace
+!*.sch
+!*.cir
+!*.asc
+
+
+# assembly
+!*s.asm

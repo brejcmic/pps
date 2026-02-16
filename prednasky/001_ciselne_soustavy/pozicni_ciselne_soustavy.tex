@@ -1,0 +1,208 @@
+\section{\texorpdfstring{Poziční číselné soustavy}{Pozicni ciselne soustavy}}
+
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Vyjádření polynomem}
+
+		\begin{minipage}[t][0.4\textheight][t]{\textwidth}
+      \small
+			\boldmath
+			\begin{align*}
+			H =& A_{Z}(a_{n} a_{n-1} ... a_{1} a_{0}\textcolor{red}{,} a_{-1} a_{-2} ... a_{-m+1} a_{m}) =\\ \\
+				=& a_{n} \cdot Z^n + a_{n-1} \cdot Z^{n-1} + ...\\ 
+				+& a_{1} \cdot Z^1 + a_{0} \cdot Z^0\textcolor{red}{,} + a_{-1} \cdot Z^{-1} + a_{-2} \cdot Z^{-2} + ...\\ 
+				+& a_{-1} \cdot Z^{-m+1} + a_{-m} \cdot Z^{-m}
+			\end{align*}
+		\end{minipage}
+		
+		\begin{minipage}[t][0.5\textheight][t]{\textwidth}
+			\boldmath
+			\begin{itemize}
+				\item $H$ ... hodnota čísla, je nezávislá na soustavě, ve které je vyjádřena,		
+				
+				\item $A_{Z}(a_{n} a_{n-1} ... a_{1} a_{0}, a_{-1} a_{-2} ... a_{-m+1} a_{m})$ ...
+					\begin{itemize}
+						\item vyjádření čísla v dané soustavě,
+						\item $a_{i}$ jsou koeficienty polynomu a vyjadřují číslice,
+						\item \textcolor{red}{\textbf{čárka}} reprezentuje řádovou čárku,
+						\item \textcolor{red}{\textbf{pozice}} koeficientu určuje násobení příslušné mocniny základu,
+						\item koeficienty se záporným indexem náleží neceločíselné části.
+					\end{itemize}
+			\end{itemize}
+		\end{minipage}
+		
+	\end{frame}
+
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Vyjádření polynomem}
+		
+		\begin{minipage}[t][0.4\textheight][t]{\textwidth}
+      \small
+			\boldmath
+			\begin{align*}
+			H =& A_{Z}(a_{n} a_{n-1} ... a_{1} a_{0}\textcolor{red}{,} a_{-1} a_{-2} ... a_{-m+1} a_{m}) =\\ \\
+				=& a_{n} \cdot Z^n + a_{n-1} \cdot Z^{n-1} + ...\\ 
+				+& a_{1} \cdot Z^1 + a_{0} \cdot Z^0\textcolor{red}{,} + a_{-1} \cdot Z^{-1} + a_{-2} \cdot Z^{-2} + ...\\ 
+				+& a_{-1} \cdot Z^{-m+1} + a_{-m} \cdot Z^{-m}
+			\end{align*}
+		\end{minipage}
+		
+		\begin{minipage}[t][0.5\textheight][t]{\textwidth}
+			\boldmath
+			\begin{itemize}
+				\item $Z$ ... základ (báze) soustavy, udává konstantu jejíž násobky mocnin jsou sčítány. Je charakteristikou číselné soustavy:
+					\begin{itemize}
+						\item $Z=2$ ... binární soustava,
+						\item $Z=8$ ... osmičková soustava,
+						\item $Z=10$ ... dekadická soustava,
+						\item $Z=16$ ... hexadecimální soustava.
+					\end{itemize}
+				
+				\item Koeficienty $a_{i}$ mohou nabývat pouze hodnoty $0$ až $(Z-1)$.
+			\end{itemize}
+			
+		\end{minipage}
+	\end{frame}
+  
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Vyjádření polynomem}
+		
+		\begin{minipage}[t][0.4\textheight][t]{\textwidth}
+    \textbf{Vyjádření pomocí sumy:}
+      \small
+			\boldmath
+			\begin{align*}
+      H =& A_{Z}(a_{n} a_{n-1} ... a_{1} a_{0}\textcolor{red}{,} a_{-1} a_{-2} ... a_{-m+1} a_{m}) =\\ \\
+				=& \sum^{n}_{-m} a_i\cdot v_i = \sum^{n}_{-m} a_i\cdot Z^i
+			\end{align*}
+		\end{minipage}
+		
+		\begin{minipage}[t][0.5\textheight][t]{\textwidth}
+			\boldmath
+			\begin{itemize}
+				\item $i$ ... řád číslice,
+				\item $n$ ... nejvyšší řád s nenulovou číslicí,
+        \item $-m$ ... nejnižší řád s nenulovou číslicí, pro celá čísla je  $m=0$,
+        \item $v_i = Z^i$ ... váha číslice je rovna základu umocněnému příslušným řádem.
+			\end{itemize}
+			
+		\end{minipage}
+	\end{frame}
+	
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Vyjádření čísla v dekadické soustavě}
+		
+		\begin{minipage}[t][0.6\textheight][t]{\textwidth}
+			\boldmath
+			\begin{align*}
+			(4528)_{10} =& \\ 
+				=& 4 \cdot 10^3 + 5 \cdot 10^2 + 2 \cdot 10^1 + 8 \cdot 10^0 =\\ 
+				=& 4528\\ 
+			(1101001)_{2} =& \\ 
+				=& 1 \cdot 2^6 + 1 \cdot 2^5 + 0 \cdot 2^4 + 1 \cdot 2^3 + 0 \cdot 2^2 +\\
+				&+ 0 \cdot 2^1 + 1 \cdot 2^0 =\\ 
+				=& 105\\ 
+			\end{align*}
+		\end{minipage}
+		
+		\begin{minipage}[t][0.4\textheight][t]{\textwidth}
+			\boldmath
+			\begin{itemize}
+				\item Ve všech soustavách jde jen o vyjádření hodnoty - lidé přemýšlí v desítkové soustavě
+			\end{itemize}
+			
+		\end{minipage}
+	\end{frame}
+	
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Vyjádření čísla v dekadické soustavě}
+		
+		\begin{minipage}[t][0.6\textheight][t]{\textwidth}
+			\boldmath
+			\begin{align*}
+			(527)_{8} =& \\ 
+				=& 5 \cdot 8^2 + 2 \cdot 8^1 + 7 \cdot 8^0 =\\ 
+				=& 5 \cdot 64 + 2 \cdot 8 + 7 \cdot 1 =\\
+				=& 437\\ 
+			(1C5)_{16} =& \\ 
+				=& 1 \cdot 16^2 + C \cdot 16^1 + 5 \cdot 16^0 =\\
+				=& 1 \cdot 256 + 12 \cdot 16 + 5 =\\ 
+				=& 453\\ 
+			\end{align*}
+		\end{minipage}
+		
+		\begin{minipage}[t][0.4\textheight][t]{\textwidth}
+			\boldmath
+			\begin{itemize}
+				\item V šestnáckové soustavě chybí číslice pro hodnoty 10 až 15. Nahrazujeme je písmeny \textbf{A} až \textbf{F}.
+			\end{itemize}
+			
+		\end{minipage}
+	\end{frame}
+	
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Číslice šestnáctkové soustavy}
+		
+		\begin{minipage}[c][0.65\textheight][t]{0.3\textwidth}
+			\begin{tabular}{| c | c |}
+				\hline
+				\textbf{Číslice} & \textbf{Hodnota} \\
+				\hline
+				0 & 0 \\
+				\hline
+				1 & 1 \\
+				\hline
+				2 & 2 \\
+				\hline
+				3 & 3 \\
+				\hline
+				4 & 4 \\
+				\hline
+				5 & 5 \\
+				\hline
+				6 & 6 \\
+				\hline
+				7 & 7 \\
+				\hline
+			\end{tabular}
+		\end{minipage} % Pozor, bez nové řádky = vše na stejném řádku
+		\begin{minipage}[c][0.65\textheight][t]{0.32\textwidth}
+			\begin{tabular}{| c | c |}
+				\hline
+				\textbf{Číslice} & \textbf{Hodnota} \\
+				\hline
+				8 & 8 \\
+				\hline
+				9 & 9 \\
+				\hline
+				A & 10 \\
+				\hline
+				B & 11 \\
+				\hline
+				C & 12 \\
+				\hline
+				D & 13 \\
+				\hline
+				E & 14 \\
+				\hline
+				F & 15 \\
+				\hline
+			\end{tabular}
+		\end{minipage} % Pozor, bez nové řádky = vše na stejném řádku
+		\begin{minipage}[c][0.65\textheight][t]{0.28\textwidth}
+			Výhody:
+			\begin{itemize}
+				\item zkrácený zápis velkých čísel,
+				\item vyjádření stavu mnoha bitů.
+			\end{itemize}
+		\end{minipage}
+		
+		\begin{minipage}[t][0.3\textheight][t]{\textwidth}
+			Mezi šestnáctkovou a dvojkovou soustavu je snadný přímý převod, který je popsán dále v prezentaci.
+		\end{minipage}
+	\end{frame}

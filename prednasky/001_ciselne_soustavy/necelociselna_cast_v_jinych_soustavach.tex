@@ -1,0 +1,126 @@
+\section{\texorpdfstring{Neceločíselná část v jiných soustavách}{Necelociselna cast v jinych soustavach}}
+
+% =====================================================================================================================
+  \begin{frame}
+    \frametitle{Řádová mřížka - pevná řádová čárka}
+		
+		\begin{minipage}[t][0.2\textheight][t]{\textwidth}
+      \boldmath
+			\small
+      Registr tvoří řádovou mřížku:
+      \begin{center}
+        \begin{tabular}{| p{5mm} | p{5mm} || p{5mm} | p{5mm} | p{5mm} | p{5mm} | p{5mm} | p{5mm} |}
+				 \hline
+          & & & & & & & \\
+         \hline
+        \end{tabular}
+      \end{center}
+		\end{minipage}
+    
+		\begin{minipage}[t][0.7\textheight][t]{\textwidth}
+		\boldmath
+		\small
+      \begin{itemize}
+        \item $n$ ...\\ nevyšší řád celočíselné části, zde je to $1$, 
+        \item $-m$ ...\\ nejnižší řád neceločíselné části, zde je to $-6$,
+        \item $l = n + m + 1$ ...\\ délka řádové mřížky, zde je to $8$,
+        \item $\epsilon = Z^{-m}$ ...\\ jednotka řádové mřížky, nejmenší nenulové číslo, zde je to $2^{-6}$,
+				\item $M=Z^{l-m}=Z^{n+1}$ ...\\ modul řádové mřížky, číslo při kterém dochází k přetečení, zde je to $4 = 2^{2}$.
+      \end{itemize}
+		\end{minipage}
+		
+	\end{frame}
+	
+% =====================================================================================================================
+  \begin{frame}
+    \frametitle{Řádová mřížka - problém konečné délky mřížky}
+		
+		\begin{minipage}[t][0.5\textheight][t]{\textwidth}
+      \boldmath
+			\small
+      Převáděné číslo má nekonečně desetinných míst. \\ \\
+			Například $\pi=3,1415926...$:
+      \begin{center}
+        \begin{tabular}{| p{5mm} | p{5mm} || p{5mm} | p{5mm} | p{5mm} | p{5mm} | p{5mm} | p{5mm} |}
+				 \hline
+          1 & 1 & 0 & 0 & 1 & 0 & 0 & 1 \\
+         \hline
+        \end{tabular}
+      \end{center} 
+			se zobrazí jako číslo $3,140625$
+		\end{minipage}
+    
+		\begin{minipage}[t][0.4\textheight][t]{\textwidth}
+		\boldmath
+		\small
+      \begin{itemize}
+        \item velmi specifické pro iracionální čísla,
+				\item racionální čísla s nekonečným počtem desetinných míst v dekadické soustavě mohou mít konečný počet míst v jiné soustavě. Například: \\
+				$(0,33\bar{3})_{10}=(1/3)_{10}=(0,1)_{3}$
+      \end{itemize}
+		\end{minipage}
+		
+	\end{frame}
+	
+% =====================================================================================================================
+  \begin{frame}
+    \frametitle{Řádová mřížka - problém nekonečného převodu}
+		
+		\begin{minipage}[t][0.4\textheight][t]{\textwidth}
+      \boldmath
+			\small
+      Převáděné číslo má nekonečný počet míst v jiné soustavě. \\ \\
+			Například číslo $x=1,8$
+      \begin{center}
+        \begin{tabular}{| p{5mm} | p{5mm} || p{5mm} | p{5mm} | p{5mm} | p{5mm} | p{5mm} | p{5mm} |}
+				 \hline
+          0 & 1 & 1 & 1 & 0 & 0 & 1 & 1 \\
+         \hline
+        \end{tabular}
+      \end{center} 
+			se zobrazí jako číslo $1,796875$, protože v binární soustavě vychází periodický výsledek $(1,\overline{1100})_2$
+		\end{minipage}
+    
+		\begin{minipage}[t][0.5\textheight][t]{\textwidth}
+		\boldmath
+		\small
+		\textbf{Důsledky:}
+      \begin{itemize}
+        \item V registru lze zobrazovat neceločíselné hodnoty jen s konečnou přesností danou velikostí $\epsilon$,
+				\item hodnota může být
+				
+				\begin{itemize}
+					\item zaokrouhlena dolů oříznutím výsledku,
+					\item zaokrouhlena nahoru přičtením $Z^{-m-1}$,
+					\item zaokrouhlena na obě strany přičtením $\epsilon/2 = Z^{-m}/2$,
+				\end{itemize}
+				
+      \end{itemize}
+		\end{minipage}
+		
+	\end{frame}
+	
+% =====================================================================================================================
+  \begin{frame}
+    \frametitle{Praktický převod neceločíselné části}
+		\small
+		\boldmath
+		\begin{itemize}
+			\item Prakticky bývá převádění celých čísel z dekadické soustavy do binární z hlavy jednodušší než převádění desetinných čísel.
+			\item jelikož známe předem počet míst, na které chceme desetinné číslo zapsat, tak můžeme použít triku s posunem řádů.
+		\end{itemize}
+		
+		\vspace{4mm}
+		Mějme $x = (0,31)_{10}$ a to chceme vložit do registru jako binární číslo s ${m} = 8$ (tj. máme 8 bitů pro zobrazení):
+		
+		
+		\begin{enumerate}
+			\item Provedeme posun řádové řádky v cílové soustavě na požadovaný počet míst:\\
+			$y = 0,31\cdot 2^8 = 0,31 \cdot 256 = 79,36$
+			\item Zbavíme se desetinné části a provedeme převod celého čísla:\\
+			$z =(79)_{10} = (1001111)_{2}$
+			\item Posuneme řádovou čárku vlevo na požadovaný počet míst:\\
+			$x = (0,01001111)_{2} = (0,30859375)_{10}$
+		\end{enumerate}
+		
+	\end{frame}
