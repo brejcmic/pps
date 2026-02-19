@@ -1,0 +1,168 @@
+\section{\texorpdfstring{Plovoucí řádová čárka}{Plovouci radova carka}}
+
+% =====================================================================================================================
+  \begin{frame}
+    \frametitle{Pevná řádová čárka X Plovoucí řádová čárka}
+    \boldmath
+    
+    \begin{itemize}
+      \item Pevná řádová čárka má velmi omezený rozsah čísel \\
+      \textbf{Příklad (16 bit) $\Longrightarrow$ jen 65536 zobrazitelných hodnot, tedy maximální rozsah hodnot je pro:}
+      \vspace{2mm}
+      \begin{itemize}
+        \item celá čísla bez znaménka: \textcolor{blue}{$0$} až \textcolor{blue}{$65536$},
+        \item celá čísla se znaménkem: \textcolor{blue}{$-32768$} až \textcolor{blue}{$32767$},
+      \end{itemize}
+      Po zavedení neceločíselné části se sníží jak jednotka mřížky, tak maximální rozsah hodnot.
+      \vspace{3mm}
+      \item Rozsah lze zvětšit vědeckým zápisem čísel (vědecká notace)
+      \begin{center}
+        \textcolor{blue}{$m\cdot Z^{e}$}
+      \end{center}
+    \end{itemize}
+	\end{frame}
+
+% =====================================================================================================================
+  \begin{frame}
+    \frametitle{Zápis}
+    \boldmath
+    
+    Ve všech soustavách stejný:
+    \large
+    \begin{center}
+      \framebox{$m\cdot Z^{e}$}
+    \end{center}
+    
+    \normalsize
+    \begin{itemize}
+      \item $m$ ... \textbf{MANTISA}, informace o číselné hodnotě
+      \item $e$ ... \textbf{EXPONENT}, informace o pozici řádové čárky
+      \item $Z$ ... \textbf{ZÁKLAD}, základ soustavy vyjadřovaného čísla
+    \end{itemize}
+    
+    \vspace{3mm}
+    Mantisa i exponent mohou nabývat kladných i záporných hodnot.
+    
+    \vspace{2mm}
+    \textbf{Příklad v dekadické soustavě pro 2 číslice mantisy a 1 číslici exponentu obojí s přímým zápisem znaménka:}
+    
+    \vspace{2mm}
+    \begin{itemize}
+      \item rozsah hodnot: \textcolor{blue}{$-9,9\cdot 10^{9}$} až \textcolor{blue}{$9,9\cdot 10^{9}$}
+      \item jednotka, krok: \textcolor{blue}{$0,1\cdot 10^{-9}$}
+    \end{itemize}
+	\end{frame}
+% =====================================================================================================================
+  \begin{frame}
+    \frametitle{Vlastnosti}
+    \boldmath
+    \textbf{Vyjádřením čísel v plovoucí řádové čárce}
+    \begin{itemize}
+      \item se nemění počet zobrazitelných hodnot. Pro 16 bitů bude stále počet zobrazitelných hodnot roven 65536,
+      \item lze získat větší rozsah hodnot z pohledu maxima a minima,
+      \item je přesnost každého čísla dána jednotkou zápisu mantisy,
+      \item je třeba vyřešit problém nejednoznačnosti vyjádření téhož čísla, příklad pro dekadickou hodnotu:
+      \small
+        \begin{align*}
+        62,15 =& 62,15 \cdot 10^{0} = 621,5 \cdot 10^{-1} = 6,215 \cdot 10^{1} = ...
+        \end{align*}
+      \normalsize
+      \item musíme upravit aritmetické operace tak, aby respektovaly přítomnost exponentu, viz dále.
+    \end{itemize}
+	\end{frame}
+  
+% =====================================================================================================================
+  \begin{frame}
+    \frametitle{ANSI/IEEE 754 - kódování hodnoty}
+    \boldmath
+    \textbf{Základní přesnost 32 bit:}
+    \vspace{3mm}
+    
+    \begin{minipage}[t][0.2\textheight][t]{0.15\textwidth}
+    \begin{center}
+      \textcolor{blue}{\textbf{1 bit}}
+      
+      \begin{tabular}{|c|}
+      \hline
+      s \\
+      \hline
+      \end{tabular}
+      
+      znaménko
+    \end{center}
+    \end{minipage}
+    \begin{minipage}[t][0.2\textheight][t]{0.5\textwidth}
+    \begin{center}
+      \textcolor{blue}{\textbf{8 bit}}
+      
+      \begin{tabular}{|c|c|c|c|c|c|c|c|}
+      \hline
+      e & e & e & e & e & e & e & e \\
+      \hline
+      \end{tabular}
+      
+      exponent
+    \end{center}
+    \end{minipage}
+    \begin{minipage}[t][0.2\textheight][t]{0.3\textwidth}
+    \begin{center}
+      \textcolor{blue}{\textbf{23+1 bit}}
+      
+      \begin{tabular}{|c|c|c|c}
+      \hline
+      m & m & m & ...\\
+      \hline
+      \end{tabular}
+      
+      mantisa
+    \end{center}
+    \end{minipage}
+    
+    \begin{itemize}
+      \item Znaménko náleží mantise - přímý kód:
+      
+      \begin{itemize}
+        \item 0 ... kladné
+        \item 1 ... záporné
+      \end{itemize}
+      
+      \item Exponent je zapisován aditivním kódu s posunutím \textcolor{red}{\textbf{+127}}.
+      \item Mantisa je zapisována v normalizovaném tvaru, který obsahuje \textcolor{red}{\textbf{skrytou 1}}. Mantisa je tak o jeden bit delší než kolik je počet bitů vyhrazených pro její zápis.
+    \end{itemize}
+
+	\end{frame}
+  
+% =====================================================================================================================
+  \begin{frame}
+    \frametitle{Aritmetika}
+
+    \begin{enumerate}
+      \item Aritmetická operace
+      
+      \begin{itemize}
+        \item \textbf{sčítání (odečítání)}
+        
+        \begin{enumerate}
+          \item Úprava zápisu obou hodnot tak, aby měly shodné exponenty.
+          \item Sečtení (odečtení) mantis v přímém kódu.
+        \end{enumerate}
+        
+        \item \textbf{násobení}
+        \begin{enumerate}
+          \item Součet exponentů v aditivním kódu.
+          \item Násobení mantis.
+          \item Násobení znamének - jde vlastně o sečtení znamének, funkce XOR.
+        \end{enumerate}
+        
+        \item \textbf{dělení}
+        \begin{enumerate}
+          \item Rozdíl exponentů v aditivním kódu.
+          \item Dělení mantis.
+          \item Totéž co pro násobení znamének.
+        \end{enumerate}
+        
+      \end{itemize}
+      
+      \item Normalizace výsledku
+    \end{enumerate}
+	\end{frame}

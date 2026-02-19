@@ -1,0 +1,155 @@
+\section{\texorpdfstring{Sčítání a odčítání v jiných soustavách}{Scitani a odcitani v jinych soustavach}}
+
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Sčítání}
+
+		\begin{minipage}[t][\textheight][t]{0.49\textwidth}
+      Sčítání v soustavě o základu 10
+      \vspace{10mm}
+      
+			\boldmath
+			\begin{tabular}{ p{20mm} c c c}
+				1. člen $X$  & 1 & 2 & 2 \\
+				2. člen $Y$  & 2 & 9 & 1 \\
+        přenos    & \textcolor{red}{1} &   &   \\
+        \hline
+        výsledek  & 4 & 1 & 3 \\
+			\end{tabular}
+      
+      \vspace{10mm}
+      \begin{itemize}
+        \item Přenos při $x + y > 10$
+        \item Zapisujeme $x + y - 10$
+      \end{itemize}
+      
+		\end{minipage}
+		\begin{minipage}[t][\textheight][t]{0.5\textwidth}
+      Sčítání v soustavě o základu 8
+      \vspace{10mm}
+      
+			\boldmath
+			\begin{tabular}{ p{20mm} c c c}
+				1. člen $X$  & 1 & 7 & 2 \\
+				2. člen $Y$  & 4 & 4 & 3 \\
+        přenos    & \textcolor{red}{1} &   &   \\
+        \hline
+        výsledek  & 6 & 3 & 5 \\
+			\end{tabular}
+      
+      \vspace{10mm}
+      \begin{itemize}
+        \item Přenos při $x + y > 8$
+        \item Zapisujeme $x + y - 8$
+      \end{itemize}
+      
+		\end{minipage}
+		
+	\end{frame}
+
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Sčítání vlastnosti}
+		\boldmath
+    
+    \begin{itemize}
+      \item Ve všech soustavách stejný postup.
+      \item Při sčítání dvou sčítanců může být přenos maximálně 1.
+      \item Při sčítání dvou sčítanců může být výsledek o jednu pozici širší než jsou oba sčítance.
+    \end{itemize}
+    
+    Později bude dávat smysl rozšíření obou sčítanců nulami vlevo na možnou délku výsledku.
+    
+    \vspace{4mm}
+    \textbf{Příklad pro binární hodnoty}:
+    \vspace{2mm}
+      
+    \boldmath
+    \begin{center}
+      \begin{tabular}{ p{20mm} c c c c c c c}
+        1. člen $X$  & \textcolor{blue}{0} & 1 & 1 & 1 & 0 & 1 & 0 \\
+        2. člen $Y$  & \textcolor{blue}{0} & 1 & 0 & 1 & 0 & 1 & 1 \\
+        přenos       & \textcolor{red}{1}  & \textcolor{red}{1} & \textcolor{red}{1} &   & \textcolor{red}{1} &   &   \\
+        \hline
+        výsledek     &                  1  & 1 & 0 & 0 & 1 & 0 & 1 \\
+      \end{tabular}
+    \end{center}
+    
+	\end{frame}
+  
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Odčítání}
+
+		\begin{minipage}[t][\textheight][t]{0.49\textwidth}
+      Odčítání v soustavě o základu 10
+      \vspace{10mm}
+      
+			\boldmath
+			\begin{tabular}{ p{20mm} c c c c}
+				1. člen $X$  &   & 2 & 9 & 1 \\
+				2. člen $Y$  & - & 1 & 2 & 2 \\
+        výpůjčka     &   &  & \textcolor{red}{-1} &   \\
+        \hline
+        výsledek     &   & 1 & 6 & 9 \\
+			\end{tabular}
+      
+      \vspace{10mm}
+      \begin{itemize}
+        \item Přenos při $x + y > 10$
+        \item Zapisujeme $x - y + 10$
+      \end{itemize}
+      
+		\end{minipage}
+		\begin{minipage}[t][\textheight][t]{0.5\textwidth}
+      Odčítání v soustavě o základu 8
+      \vspace{10mm}
+      
+			\boldmath
+			\begin{tabular}{ p{20mm} c c c c}
+				1. člen $X$  &   & 4 & 4 & 3 \\
+				2. člen $Y$  & - & 1 & 7 & 2 \\
+        výpůjčka     &   & \textcolor{red}{-1} &   &   \\
+        \hline
+        výsledek     &   & 2 & 5 & 1 \\
+			\end{tabular}
+      
+      \vspace{10mm}
+      \begin{itemize}
+        \item Výpůjčka při $x - y < 0$
+        \item Zapisujeme $x - y + 8$
+      \end{itemize}
+      
+		\end{minipage}
+		
+	\end{frame}
+  
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Odčítání vlastnosti}
+		\boldmath
+    
+    \begin{itemize}
+      \item Ve všech soustavách stejný postup.
+      \item Při rozdílu dvou členů může být výpůjčka maximálně 1.
+      \item Při přímém vyjádření znaménka musí být menšenec větší než menšitel.
+      \item Pro větší menšitel než menšenec stále odečítáme menší číslo od většího a měníme znaménko u výsledku.
+      \item Výsledek může být jen kratší, viz příklad.
+    \end{itemize}
+    
+    \vspace{4mm}
+    \textbf{Příklad pro binární hodnoty}:
+    \vspace{2mm}
+      
+    \boldmath
+    \begin{center}
+      \begin{tabular}{ p{20mm} c c c c c c c c}
+        1. člen $X$  &   & 1 & 1 & 1 & 0 & 1 & 0 \\
+        2. člen $Y$  & - & 1 & 0 & 1 & 0 & 1 & 1 \\
+        výpůjčka     &   &   & \textcolor{red}{-1}  & \textcolor{red}{-1} & \textcolor{red}{-1}  & \textcolor{red}{-1}  &   \\
+        \hline
+        výsledek     &   & 0 & 0 & 0 & 1 & 1 & 1 \\
+      \end{tabular}
+    \end{center}
+    
+	\end{frame}
