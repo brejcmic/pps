@@ -75,7 +75,7 @@
   \begin{frame}
     \frametitle{ANSI/IEEE 754 - kódování hodnoty}
     \boldmath
-    \textbf{Základní přesnost 32 bit:}
+    \textbf{Jednoduchá přesnost 32 bit:}
     \vspace{3mm}
     
     \begin{minipage}[t][0.2\textheight][t]{0.15\textwidth}
@@ -130,6 +130,111 @@
       \item Mantisa je zapisována v normalizovaném tvaru, který obsahuje \textcolor{red}{\textbf{skrytou 1}}. Mantisa je tak o jeden bit delší než kolik je počet bitů vyhrazených pro její zápis.
     \end{itemize}
 
+	\end{frame}
+  
+% =====================================================================================================================
+  \begin{frame}
+    \frametitle{ANSI/IEEE 754 - převod}
+    \boldmath
+    \textbf{Příklad:} $(12,25)_{10}$
+    \vspace{3mm}
+    
+    \begin{minipage}[t][0.2\textheight][t]{0.1\textwidth}
+    \begin{center}
+      
+      \begin{tabular}{|c|}
+      \hline
+      0 \\
+      \hline
+      \end{tabular}
+    \end{center}
+    \end{minipage}
+    \begin{minipage}[t][0.2\textheight][t]{0.44\textwidth}
+    \begin{center}
+    
+      \begin{tabular}{|c|c|c|c|c|c|c|c|}
+      \hline
+      1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+      \hline
+      \end{tabular}
+    \end{center}
+    \end{minipage}
+    \begin{minipage}[t][0.2\textheight][t]{0.44\textwidth}
+    \begin{center}
+      \textcolor{red}{1,}
+      \begin{tabular}{|c|c|c|c|c|c|c}
+      \hline
+      1 & 0 & 0 & 0 & 1 & 0 & ...\\
+      \hline
+      \end{tabular}
+    \end{center}
+    \end{minipage}
+    
+    \begin{itemize}
+      \item Převod: $(1100,01)_2$
+      \item \textbf{Znaménko:} kladné $\Rightarrow$ $0$
+      \item Normalizace - posun řádové čárky po za první zapsanou jedničku \\
+      $(1100,01)_2 = (1,10001)_2 \cdot 2^{3} $
+      \item \textbf{Mantisa:} pouze hodnota bez první jedničky $\Rightarrow$ $(10001)_2$
+      \item \textbf{Exponent:} $127 + 3 = 130 = (10001000)_2$
+    \end{itemize}
+
+	\end{frame}
+  
+% =====================================================================================================================
+  \begin{frame}
+    \frametitle{ANSI/IEEE 754 - vyhrazené hodnoty}
+    \boldmath
+    
+    \begin{itemize}
+      \item \textbf{Malé hodnoty} v intervalu $-1\cdot 2^-126 < x < +1\cdot 2^-126$
+        \begin{itemize}
+          \item mají exponent roven 0
+          \item se nenormalizují - není to možné
+        \end{itemize}
+        
+       \item \textbf{Nula}
+        \begin{itemize}
+          \item mantisa a zároveň exponent jsou nulové
+          \item může být záporná
+        \end{itemize}
+        
+       \item \textbf{Nekonečno}
+        \begin{itemize}
+          \item exponent je 255 a zároveň \textcolor{red}{\textbf{je}} mantisa nulová
+          \item může být kladné i záporné
+        \end{itemize}
+        
+       \item \textbf{NaN} - chybná hodnota
+        \begin{itemize}
+          \item exponent je 255 a zároveň mantisa \textcolor{red}{\textbf{není}} nulová
+        \end{itemize}
+    \end{itemize}
+   
+	\end{frame}
+
+% =====================================================================================================================
+  \begin{frame}
+    \frametitle{ANSI/IEEE 754 - přesnost}
+    \boldmath
+    
+    \begin{center}
+      \begin{tabular}{l c c c c l}
+      \hline
+      \textbf{Název} & \textbf{Délka} & \textbf{Znaménko} & \textbf{Exponent} & \textbf{Mantisa} \\
+      \hline
+      \hline
+      poloviční & 16 & 1 & 5 & 10+1 \\
+      \hline
+      jednoduchá & 32 & 1 & 8 & 23+1 \\
+      \hline
+      dvojitá & 64 & 1 & 11 & 52+1 \\
+      \hline
+      čtyřnásobná & 128 & 1 & 15 & 112+1 \\
+      \hline
+      \end{tabular}
+    \end{center}
+   
 	\end{frame}
   
 % =====================================================================================================================

@@ -1,0 +1,142 @@
+\section{\texorpdfstring{Násobení a dělení}{Nasobeni a deleni}}
+
+% =====================================================================================================================
+  \begin{frame}
+    \frametitle{Násobení ve 2. doplňku}
+    \boldmath
+    
+    \begin{itemize}
+      \item Násobení v ostatních soustavách funguje stejně jako v desítkové soustavě - násobení pod sebou,
+      \item je extrémně jednoduché pro binární soustavu, protože opisujeme jen nenulové řádky,
+      \item pokud rozšiřujeme správně, pak kódování ve 2. doplňku funguje při násobení zcela automaticky,
+      \item výsledek násobení může mít tolik řádů, kolik je součet počtu řádů obou členů.
+    \end{itemize}
+    
+      \textbf{Příklad:}    
+      \begin{align*}
+        (3)_{10} \cdot (3)_{10} =& (9)_{10} \\
+        (11)_{2} \cdot (11)_{2} =& (1001)_{2}
+      \end{align*}
+      
+      Oba členy mají 2 místa, výsledek má 4.
+	\end{frame}
+  
+% =====================================================================================================================
+  \begin{frame}
+    \frametitle{Násobení ve 2. doplňku - podsebou, kladné členy}
+    \boldmath
+    
+    \textbf{Příklad:} $6\cdot 9 = 54$
+    
+      \vspace{3mm}
+      1. člen: $(110)_{2}$, po zavedení znaménka $(0110)_{2}$
+      
+      2. člen: $(1001)_{2}$ , po zavedení znaménka $(01001)_{2}$
+      
+      $\Rightarrow$ oba členy rozšíříme nejméně na 9 bitů - zde 10 bitů
+      \vspace{10mm}
+      \begin{center}
+        \begin{tabular}{c | c c c c c c c c c c}
+          $\longleftarrow$ \textcolor{red}{0} & \textcolor{blue}{0} & \textcolor{blue}{0} & \textcolor{blue}{0} & \textcolor{blue}{0} & \textcolor{blue}{0} & 0 & 1 & 0 & 0 & 1 \\
+          $\longleftarrow$ \textcolor{red}{0} & \textcolor{blue}{0} & \textcolor{blue}{0} & \textcolor{blue}{0} & \textcolor{blue}{0} & \textcolor{blue}{0} & 0 & 0 & 1 & 1 & 0 \\
+          \hline
+          $\longleftarrow$ \textcolor{red}{0} & \textcolor{blue}{0} & \textcolor{blue}{0} & \textcolor{blue}{0} & \textcolor{blue}{0} & \textcolor{blue}{0} & 0 & 0 & 0 & 0 & 0 \\
+          $\longleftarrow$ \textcolor{red}{0} & \textcolor{blue}{0} & \textcolor{blue}{0} & \textcolor{blue}{0} & \textcolor{blue}{0} & 0 & 1 & 0 & 0 & 1 &  \\
+          $\longleftarrow$ \textcolor{red}{0} & \textcolor{blue}{0} & \textcolor{blue}{0} & \textcolor{blue}{0} & 0 & 1 & 0 & 0 & 1 &  &  \\
+          \hline
+          $\longleftarrow$ \textcolor{red}{0} & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & 1 & 0
+        \end{tabular}
+      \end{center}
+    
+	\end{frame}
+
+% =====================================================================================================================
+  \begin{frame}
+    \frametitle{Násobení ve 2. doplňku - podsebou, záporný člen}
+    \boldmath
+    
+    \textbf{Příklad:} $6\cdot (-9) = -54$
+    
+      \vspace{3mm}
+      1. člen: $(110)_{2}$, po zavedení znaménka $(0110)_{2}$
+      
+      2. člen: $(10111)_{2}$
+      
+      $\Rightarrow$ oba členy rozšíříme nejméně na 9 bitů - zde 10 bitů
+      \vspace{10mm}
+      \begin{center}
+        \begin{tabular}{c | c c c c c c c c c c}
+          $\longleftarrow$ \textcolor{red}{1} & \textcolor{blue}{1} & \textcolor{blue}{1} & \textcolor{blue}{1} & \textcolor{blue}{1} & \textcolor{blue}{1} & 1 & 0 & 1 & 1 & 1 \\
+          $\longleftarrow$ \textcolor{red}{0} & \textcolor{blue}{0} & \textcolor{blue}{0} & \textcolor{blue}{0} & \textcolor{blue}{0} & \textcolor{blue}{0} & 0 & 0 & 1 & 1 & 0 \\
+          \hline
+          $\longleftarrow$ \textcolor{red}{0} & \textcolor{blue}{0} & \textcolor{blue}{0} & \textcolor{blue}{0} & \textcolor{blue}{0} & \textcolor{blue}{0} & 0 & 0 & 0 & 0 & 0 \\
+          $\longleftarrow$ \textcolor{red}{1} & \textcolor{blue}{1} & \textcolor{blue}{1} & \textcolor{blue}{1} & \textcolor{blue}{1} & 1 & 0 & 1 & 1 & 1 &  \\
+          $\longleftarrow$ \textcolor{red}{1} & \textcolor{blue}{1} & \textcolor{blue}{1} & \textcolor{blue}{1} & 1 & 0 & 1 & 1 & 1 &  &  \\
+          \hline
+          $\longleftarrow$ \textcolor{red}{1} & 1 & 1 & 1 & 1 & 0 & 0 & 1 & 0 & 1 & 0
+        \end{tabular}
+      \end{center}
+    
+	\end{frame}
+  
+% =====================================================================================================================
+  \begin{frame}
+    \frametitle{Násobení ve 2. doplňku}
+    \boldmath
+    
+    \begin{itemize}
+      \item Dělení v ostatních soustavách funguje podobně jako v desítkové soustavě,
+      \item pro záporná čísla lze používat \textbf{metodu dělení s obnovou zbytku} nebo \textbf{převedení na absolutní hodnoty},
+      \item existuje zde problém přetečení při dělení minima rozsahu hodnotou -1:
+    \end{itemize}
+    \vspace{5mm}
+    
+      \textbf{Příklad:} 
+      
+       8 bitový registr s hodnotou se znaménkem ve 2. doplňku.
+        
+        \begin{itemize}
+          \item Rozsah hodnot -128 až 127,
+          \item problematická operace je $-128/-1 = 128$, což je mimo rozsah.
+        \end{itemize}
+      
+      $\Longrightarrow$ Musím rozšířit dělenec o 1 bit! Výsledek dělení je také širší o 1 bit.
+	\end{frame}
+ 
+% =====================================================================================================================
+  \begin{frame}
+    \frametitle{Dělení ve 2. doplňku - kladné členy}
+    \boldmath
+    \small
+    \textbf{Příklad:} $15\cdot 3 = 5$
+    
+      1. člen: $(1111)_{2}$, po zavedení znaménka $(01111)_{2}$
+      
+      2. člen: $(11)_{2}$ , po zavedení znaménka $(011)_{2}$, záporná hodnota $(11101)_{2}$
+      
+      \vspace{3mm}
+      \begin{center}
+        \begin{tabular}{r || r | r r r r r r r r}
+         \textcolor{blue}{\textbf{zbytek}} & & 001111 & : 11 =  \textcolor{red}{000}\textcolor{blue}{1}\textcolor{red}{0}\textcolor{blue}{1} \\
+         posun dělitele a odečtení od zbytku & 1110 & 100000 & + \textcolor{blue}{001111}\\
+          \hline
+          \textcolor{red}{\textbf{záporný výsledek}} & 1110 & 101111 & \\
+          posun dělitele a odečtení od zbytku & 1111 & 010000 & + \textcolor{blue}{001111}\\
+          \hline
+          \textcolor{red}{\textbf{záporný výsledek}} & 1111 & 011111 & \\
+          posun dělitele a odečtení od zbytku & 1111 & 101000 & + \textcolor{blue}{001111}\\
+          \hline
+          \textcolor{red}{\textbf{záporný výsledek}} & 1111 & 110111 & \\
+          posun dělitele a odečtení od zbytku & 1111 & 110100 & + \textcolor{blue}{001111}\\
+          \hline
+          \textcolor{blue}{\textbf{kladný výsledek, zbytek}} & 0000 & 000011 & \\
+          posun dělitele a odečtení od zbytku & 1111 & 111010 & + \textcolor{blue}{000011}\\
+          \hline
+          \textcolor{red}{\textbf{záporný výsledek}} & 1111 & 111101 & \\
+          posun dělitele a odečtení od zbytku & 1111 & 111101 & + \textcolor{blue}{000011}\\
+          \hline
+          \textcolor{blue}{\textbf{kladný výsledek, zbytek}} & 0000 & 000000 & \\
+        \end{tabular}
+      \end{center}
+    
+	\end{frame}

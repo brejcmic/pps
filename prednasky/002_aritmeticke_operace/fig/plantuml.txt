@@ -1,0 +1,14 @@
+@startuml
+start
+skinparam dpi 300
+
+if (MSB(x) == MSB(y)) then (true)
+  :|z| = |x| + |y| \nMSB(z) = MSB(x);
+elseif ( |x| > |y| ) then (true)
+  :|z| = |x| - |y| \nMSB(z) = MSB(x);
+else
+  :|z| = |y| - |x| \nMSB(z) = MSB(y);
+endif
+
+stop
+@enduml

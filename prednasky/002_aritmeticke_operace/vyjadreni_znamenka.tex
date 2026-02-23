@@ -25,7 +25,7 @@
 % =====================================================================================================================
 	\begin{frame}
     \frametitle{Přímý kód}
-
+    \boldmath
 		\begin{minipage}{0.49\textwidth}
       \small
       \begin{itemize}
@@ -35,6 +35,11 @@
         \item Zbývající bity reprezentují absolutní hodnotu
         \item Reprezentace je přirozená člověku
         \item Nepraktické rozšiřování na více bitů
+        \item Příklad:
+          \begin{align*}
+          (6)_{10} = (00000110)_{2} \\
+          (-6)_{10} = (10000110)_{2}
+          \end{align*}
       \end{itemize}
       
 		\end{minipage}
@@ -54,6 +59,20 @@
       
 		\end{minipage}
 		
+	\end{frame}
+  
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Přímý kód - sčítání}
+   
+    \begin{center}
+      \includegraphics[width=\textwidth]{fig/primy_kod_scitani.png}
+    \end{center}
+    
+    \begin{itemize}
+      \item Nesmí dojít k přetečení při součtu absolutních hodnot.
+    \end{itemize}
+    
 	\end{frame}
   
 % =====================================================================================================================
@@ -87,6 +106,34 @@
       
 		\end{minipage}
 		
+	\end{frame}
+  
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Aditivní kód - sčítání}
+    \boldmath
+    \small
+    Řešíme součet pro: $X = x + A$, $Y = y + A$
+    
+    \begin{itemize}
+      \item A ... je pusun,
+      \item x,y ... původní členy součtu
+      \item X,Y ... členy součtu po převodu
+    \end{itemize}
+    \vspace{5mm}
+    Po dosazení: $X + Y = x + A + y + A = (x + y) + 2A$
+		\vspace{3mm}
+    \begin{itemize}
+      \item Správný výsledek pokud na konci operace odečteme jeden posun
+      \item \textbf{Příklad:} $x = 11$, $y = -6$, $A = 32$
+      \begin{align*}
+        X = (101011)_2& \\
+        Y = (011010)_2& = (26)_{10}\\
+        X+Y = (1000101)_2& \\
+        -A = -(100000)_2& \\
+        Z = (100101)_2& = (37)_{10}
+      \end{align*}
+    \end{itemize}
 	\end{frame}
 
 % =====================================================================================================================
@@ -144,6 +191,10 @@
       \vspace{4mm}
       \textbf{Problém s přetékáním:}
       
+      \begin{itemize}
+        \item při přetečení je nutné přičíst jedničku
+        \item do operace lze přímo zavést bit přetečení
+      \end{itemize}
       
 		\end{minipage}
 		\begin{minipage}{0.49\textwidth}
@@ -154,6 +205,64 @@
      
 		\end{minipage}
 		
+	\end{frame}
+  
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Sčítání - 1. doplněk}
+    \small
+    \boldmath
+		\begin{minipage}[t][0.65\textheight][t]{0.49\textwidth}
+      \textbf{Řešíme:} $(9)_{10} - (15)_{10} = (-6)_{10}$
+      
+      \textbf{Převody:} 
+      \begin{align*}
+      (9)_{10} =& (001001)_2 \\
+      (15)_{10} =& (001111)_2 \\
+      (-15)_{10} =& (110000)_2
+      \end{align*}
+      \vspace{5mm}
+      \centering
+			\begin{tabular}{ c | c c c c c c}
+				   & 0 & 0 & 1 & 0 & 0 & 1 \\
+				   & 1 & 1 & 0 & 0 & 0 & 0 \\
+        \hline
+          \textcolor{red}{0} & 1 & 1 & 1 & 0 & 0 & 1 \\
+           &  &  &  &  &  & \textcolor{red}{+0} \\
+         \hline
+           & 1 & 1 & 1 & 0 & 0 & 1 \\
+			\end{tabular}
+      
+		\end{minipage}
+		\begin{minipage}[t][0.65\textheight][t]{0.5\textwidth}
+      \textbf{Řešíme:} $(15)_{10} - (9)_{10} = (6)_{10}$ 
+      
+      \textbf{Převody:} 
+      \begin{align*}
+      (15)_{10} =& (001111)_2 \\
+      (9)_{10} =& (001001)_2 \\
+      (-9)_{10} =& (110110)_2
+      \end{align*}
+      \vspace{5mm}
+      \centering
+			\begin{tabular}{ c | c c c c c c}
+				   & 0 & 0 & 1 & 1 & 1 & 1 \\
+				   & 1 & 1 & 0 & 1 & 1 & 0 \\
+        \hline
+          \textcolor{red}{1} & 0 & 0 & 0 & 1 & 0 & 1 \\
+           &  &  &  &  &  & \textcolor{red}{+1} \\
+         \hline
+           & 0 & 0 & 0 & 1 & 1 & 0 \\
+			\end{tabular}
+      
+		\end{minipage}
+		
+    Každý převod musí obsahovat další bit navíc (dohromady 2) kvůli
+    \begin{itemize}
+      \item existenci přetečení při součtu kladných čísel,
+      \item existenci nové informace o znaménku.
+    \end{itemize}
+    
 	\end{frame}
   
 % =====================================================================================================================
@@ -196,6 +305,57 @@
 		\end{minipage}
 		
 	\end{frame}
+  
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Sčítání - 2. doplněk}
+    \small
+    \boldmath
+		\begin{minipage}[t][0.65\textheight][t]{0.49\textwidth}
+      \textbf{Řešíme:} $(9)_{10} - (15)_{10} = (-6)_{10}$
+      
+      \textbf{Převody:} 
+      \begin{align*}
+      (9)_{10} =& (001001)_2 \\
+      (15)_{10} =& (001111)_2 \\
+      (-15)_{10} =& (110001)_2
+      \end{align*}
+      \vspace{5mm}
+      \centering
+			\begin{tabular}{ c | c c c c c c}
+				   $\longleftarrow$ \textcolor{red}{0} & 0 & 0 & 1 & 0 & 0 & 1 \\
+				   $\longleftarrow$ \textcolor{red}{1} & 1 & 1 & 0 & 0 & 0 & 1 \\
+        \hline
+           $\longleftarrow$ \textcolor{red}{1} & 1 & 1 & 1 & 0 & 1 & 0 \\
+			\end{tabular}
+      
+		\end{minipage}
+		\begin{minipage}[t][0.65\textheight][t]{0.5\textwidth}
+      \textbf{Řešíme:} $(15)_{10} - (9)_{10} = (6)_{10}$ 
+      
+      \textbf{Převody:} 
+      \begin{align*}
+      (15)_{10} =& (001111)_2 \\
+      (9)_{10} =& (001001)_2 \\
+      (-9)_{10} =& (110111)_2
+      \end{align*}
+      \vspace{5mm}
+      \centering
+			\begin{tabular}{ c | c c c c c c}
+				   $\longleftarrow$ \textcolor{red}{0} & 0 & 0 & 1 & 1 & 1 & 1 \\
+				   $\longleftarrow$ \textcolor{red}{1} & 1 & 1 & 0 & 1 & 1 & 1 \\
+        \hline
+           $\longleftarrow$ \textcolor{red}{0} & 0 & 0 & 0 & 1 & 1 & 0 \\
+			\end{tabular}
+      
+		\end{minipage}
+    
+    Totéž co bylo u prvního doplňku, musím přidat nejméně 2 bity kvůli:
+     \begin{itemize}
+      \item existenci přetečení při součtu,
+      \item existenci nové informace o znaménku.
+    \end{itemize}
+	\end{frame}
 % =====================================================================================================================
 	\begin{frame}
     \frametitle{Doplňkový kód}
@@ -206,12 +366,14 @@
       \begin{itemize}
         \item Znaménko je patrné z MSB
         \item Snadná HW implementace a výpočty
-        \item Snadné rozšiřování počtu bitů 
+        \item Snadné rozšiřování počtu bitů
         
         \begin{itemize}
           \item $X\geq 0$ rozšiřuje 0 vlevo 
           \item $X < 0$ rozšiřuje 1 vlevo 
         \end{itemize}
+        
+        \item Snadné násobení
         
       \end{itemize}
       
