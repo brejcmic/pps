@@ -1,8 +1,8 @@
-\section{\texorpdfstring{Plovoucí řádová čárka}{Plovouci radova carka}}
+\section{\texorpdfstring{Pohyblivá řádová čárka}{Pohybliva radova carka}}
 
 % =====================================================================================================================
   \begin{frame}
-    \frametitle{Pevná řádová čárka X Plovoucí řádová čárka}
+    \frametitle{Pevná řádová čárka X Pohyblivá řádová čárka}
     \boldmath
     
     \begin{itemize}
@@ -56,7 +56,7 @@
   \begin{frame}
     \frametitle{Vlastnosti}
     \boldmath
-    \textbf{Vyjádřením čísel v plovoucí řádové čárce}
+    \textbf{Vyjádřením čísel v pohyblivé řádové čárce}
     \begin{itemize}
       \item se nemění počet zobrazitelných hodnot. Pro 16 bitů bude stále počet zobrazitelných hodnot roven 65536,
       \item lze získat větší rozsah hodnot z pohledu maxima a minima,
@@ -173,7 +173,7 @@
     \begin{itemize}
       \item Převod: $(1100,01)_2$
       \item \textbf{Znaménko:} kladné $\Rightarrow$ $0$
-      \item Normalizace - posun řádové čárky po za první zapsanou jedničku \\
+      \item Normalizace - posun řádové čárky za první zapsanou jedničku \\
       $(1100,01)_2 = (1,10001)_2 \cdot 2^{3} $
       \item \textbf{Mantisa:} pouze hodnota bez první jedničky $\Rightarrow$ $(10001)_2$
       \item \textbf{Exponent:} $127 + 3 = 130 = (10001000)_2$
@@ -187,7 +187,7 @@
     \boldmath
     
     \begin{itemize}
-      \item \textbf{Malé hodnoty} v intervalu $-1\cdot 2^-126 < x < +1\cdot 2^-126$
+      \item \textbf{Malé hodnoty} v intervalu $-1\cdot 2^{-126} < x < +1\cdot 2^{-126}$
         \begin{itemize}
           \item mají exponent roven 0
           \item se nenormalizují - není to možné
