@@ -33,7 +33,7 @@
 
 # simulace
 !*.sch
-!*.cir
+!*.circ
 !*.asc
 
 
