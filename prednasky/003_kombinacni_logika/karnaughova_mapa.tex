@@ -1,0 +1,206 @@
+\section{\texorpdfstring{Karnaughova mapa}{Karnaughova mapa}}
+
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Návrh mapy}
+		\boldmath
+		
+		\begin{minipage}[t][\textheight][t]{0.48\textwidth}
+		\vspace{5mm}
+		\small
+		\textbf{Základní buňka - 2 proměnné:}
+
+		\begin{karnaugh-map}[2][2][1][$B$][$A$]
+
+			% ====== vlastní čáry ======
+
+			% A = 1 (druhý řádek)
+			\draw[very thick] (-0.15,1) -- (-0.15,0);
+
+			% B = 1 (sloupce 3 a 4)
+			\draw[very thick] (1,2.15) -- (2,2.15);
+
+		\end{karnaugh-map}
+      
+		\end{minipage}
+		\begin{minipage}[t][\textheight][t]{0.45\textwidth}
+    \vspace{5mm}
+		\small
+		\textbf{Zrcadlení - 3 proměnné:}
+		
+		\begin{karnaugh-map}[4][2][1][$B$][$C$][$A$]
+
+			% ====== vlastní čáry ======
+
+			% A = 1 (druhý řádek)
+			\draw[very thick] (-0.15,1) -- (-0.15,0);
+
+			% B = 1 (sloupce 3 a 4)
+			\draw[very thick] (2,2.3) -- (4,2.3);
+
+			% C = 1 (sloupce 2 a 3)
+			\draw[very thick] (1,2.15) -- (3,2.15);
+
+		\end{karnaugh-map}
+    Nad přidanými buňkami je stav nové proměnné roven jedné.
+		\end{minipage}
+		
+	\end{frame}
+	
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Návrh mapy - 4 proměnné}
+		\boldmath
+		
+		\small
+		\textbf{Poslední zrcadlení je směrem dolů - 4 proměnné:}
+		
+		
+		\begin{minipage}[t][0.8\textheight][t]{0.5\textwidth}
+		\vspace{3mm}
+			\begin{karnaugh-map}[4][4][1][$B$][$C$][$A$][$D$]
+
+				% ====== vlastní čáry ======
+
+				% A = 1 (řádek 2 a 3)
+				\draw[very thick] (-0.15,1) -- (-0.15,3);
+
+				% B = 1 (sloupce 3 a 4)
+				\draw[very thick] (2,4.3) -- (4,4.3);
+
+				% C = 1 (sloupce 2 a 3)
+				\draw[very thick] (1,4.15) -- (3,4.15);
+				
+				% A = 1 (řádek 3 a 4)
+				\draw[very thick] (-0.30,0) -- (-0.30,2);
+
+			\end{karnaugh-map}
+		\end{minipage}
+		\begin{minipage}[t][0.8\textheight][t]{0.45\textwidth}
+			
+			\begin{itemize}
+				\item Stejným způsobem vytváříme Grayův kód.
+				\item Postup lze opakovat pro více proměnných, vzniká ale problém se sousedstvím jedniček v nesousedních částech mapy.
+			\end{itemize}
+		\end{minipage}
+	\end{frame}
+	
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Sousední jedničky uvnitř mapy}
+		\boldmath
+		\begin{center}
+		  \begin{karnaugh-map}[4][4][1][$B$][$C$][$A$][$D$]
+				\minterms{4,5,7,6,15}
+				\implicant{4}{6}
+				\implicant{7}{15}
+				
+				% ====== vlastní čáry ======
+
+				% A = 1 (řádek 2 a 3)
+				\draw[very thick] (-0.15,1) -- (-0.15,3);
+
+				% B = 1 (sloupce 3 a 4)
+				\draw[very thick] (2,4.3) -- (4,4.3);
+
+				% C = 1 (sloupce 2 a 3)
+				\draw[very thick] (1,4.15) -- (3,4.15);
+				
+				% A = 1 (řádek 3 a 4)
+				\draw[very thick] (-0.30,0) -- (-0.30,2);
+
+			\end{karnaugh-map}
+			
+			$Y = \textcolor{red}{A\bar{D}} + \textcolor{green}{ABC}$
+		\end{center}
+	\end{frame}
+	
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Sousední jedničky přes okraj mapy}
+		\boldmath
+		\begin{center}
+		  \begin{karnaugh-map}[4][4][1][$B$][$C$][$A$][$D$]
+				\minterms{4,5,6,12,13}
+				\implicant{4}{13}
+				\implicantedge{4}{4}{6}{6}
+				
+				% ====== vlastní čáry ======
+
+				% A = 1 (řádek 2 a 3)
+				\draw[very thick] (-0.15,1) -- (-0.15,3);
+
+				% B = 1 (sloupce 3 a 4)
+				\draw[very thick] (2,4.3) -- (4,4.3);
+
+				% C = 1 (sloupce 2 a 3)
+				\draw[very thick] (1,4.15) -- (3,4.15);
+				
+				% A = 1 (řádek 3 a 4)
+				\draw[very thick] (-0.30,0) -- (-0.30,2);
+
+			\end{karnaugh-map}
+			
+			$Y = \textcolor{red}{A\bar{C}} + \textcolor{green}{A\bar{B}\bar{D}}$
+		\end{center}
+	\end{frame}
+
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Sousední jedničky v rozích mapy}
+		\boldmath
+		\begin{center}
+		  \begin{karnaugh-map}[4][4][1][$B$][$C$][$A$][$D$]
+				\minterms{0,2,8,10}
+				\implicantcorner
+				
+				% ====== vlastní čáry ======
+
+				% A = 1 (řádek 2 a 3)
+				\draw[very thick] (-0.15,1) -- (-0.15,3);
+
+				% B = 1 (sloupce 3 a 4)
+				\draw[very thick] (2,4.3) -- (4,4.3);
+
+				% C = 1 (sloupce 2 a 3)
+				\draw[very thick] (1,4.15) -- (3,4.15);
+				
+				% A = 1 (řádek 3 a 4)
+				\draw[very thick] (-0.30,0) -- (-0.30,2);
+
+			\end{karnaugh-map}
+			
+			$Y = \textcolor{red}{\bar{A}\bar{B}}$
+		\end{center}
+	\end{frame}
+	
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Nadbytečná skupina}
+		\boldmath
+		\begin{center}
+		  \begin{karnaugh-map}[4][4][1][$B$][$C$][$A$][$D$]
+				\minterms{4,5,13,15}
+				\implicant{4}{5}
+				\implicant{13}{15}
+				\implicant{5}{13}
+				
+				% ====== vlastní čáry ======
+
+				% A = 1 (řádek 2 a 3)
+				\draw[very thick] (-0.15,1) -- (-0.15,3);
+
+				% B = 1 (sloupce 3 a 4)
+				\draw[very thick] (2,4.3) -- (4,4.3);
+
+				% C = 1 (sloupce 2 a 3)
+				\draw[very thick] (1,4.15) -- (3,4.15);
+				
+				% A = 1 (řádek 3 a 4)
+				\draw[very thick] (-0.30,0) -- (-0.30,2);
+
+			\end{karnaugh-map}
+			
+			Minimalizace jen pro: $Y = \textcolor{red}{A\bar{C}\bar{D}} + \textcolor{green}{ABD}$
+		\end{center}
+	\end{frame}
