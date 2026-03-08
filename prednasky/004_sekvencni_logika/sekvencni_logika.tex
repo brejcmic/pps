@@ -1,0 +1,61 @@
+%Beamer class
+\documentclass{beamer}
+
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fontenc}
+\usepackage{tgheros}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{color}
+\usepackage{hyperref}
+
+\usepackage{amsmath} % viceradkove rovnice
+\usepackage{mathtools}
+\usefonttheme[onlymath]{serif} % reprezentace rovnic v beamer
+
+\usepackage{tikz} % kresba pro mapy
+\usepackage{karnaugh-map} % balicek s mapami
+
+
+\usetheme{AnnArbor}
+\usecolortheme{crane}
+
+
+\title[B1B13PPS]{B1B13PPS}
+\subtitle[PPS] {Průmyslové počítačové systémy}
+\author[Brejcha]{\texorpdfstring{Michal Brejcha\newline\url{brejcmic@fel.cvut.cz}}{Michal Brejcha}}
+\institute[ČVUT]{ČVUT v Praze, FEL}
+\date[Praha, 2025]{Praha, 2025}
+
+%------------------------------------------------------------------------------
+%Konstanty a definice
+%------------------------------------------------------------------------------
+
+\begin{document}
+\boldmath
+%------------------------------------------------------------------------------
+%Uvodni slajd
+%------------------------------------------------------------------------------
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Obsah} 
+\tableofcontents
+\end{frame}
+
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Téma}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+
+\input{obvody_kombinacni_logiky.tex}
+\input{sekvencni_logicka_funkce.tex}
+\input{klopne_obvody.tex}
+\input{priste.tex}
+
+\end{document}
