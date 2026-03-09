@@ -82,10 +82,10 @@
 	\begin{frame}
     \frametitle{RST klopný obvod - zapojení}
 		\small
-		\begin{itemize}
+		\begin{enumerate}
 			\item Zavádíme navíc signál T (Toggle) pro povolení vstupů:
 			\begin{align*}
-				Q=& TS+\overline{TR}Q) = \bar{\bar{Q}} = \overline{\overline{TS+\overline{TR}Q}} = \\
+				Q=& TS+\overline{TR}Q = \bar{\bar{Q}} = \overline{\overline{TS+\overline{TR}Q}} = \\
 				 =& \overline{\overline{TS} \cdot \overline{\overline{TR}Q}}
 			\end{align*}
 			\item Zapojení:
@@ -93,6 +93,42 @@
 				\begin{center}
 					\includegraphics[width=0.5\textwidth]{fig/RST_KO.png}
 				\end{center}
+		\end{enumerate}
+	
+	\end{frame}
+  
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{D klopný obvod - zapojení}
+		\small
+		\begin{itemize}
+			\item RST KO zapojené do kaskády:
+				
+				\begin{center}
+					\includegraphics[width=0.8\textwidth]{fig/D_KO.png}
+				\end{center}
+        
+      \item Vstup D (Data) slouží k nastavení budoucí hodnoty,
+      \item stav je změněn jen při příchodu náběžné hrany na vstupu CLK (Clock),
+      \item reakci na sestupnou hranu lze získat odstraněním první negace vstupu CLK.
+		\end{itemize}
+	
+	\end{frame}
+  
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{D klopný obvod - hradlo 74HC74}
+		\small
+		\begin{itemize}
+			\item RST KO zapojené do kaskády:
+				
+				\begin{center}
+					\includegraphics[width=0.8\textwidth]{fig/D_KO.png}
+				\end{center}
+        
+      \item Vstup D (Data) slouží k nastavení budoucí hodnoty,
+      \item stav je změněn jen při příchodu náběžné hrany na vstupu CLK (Clock),
+      \item reakci na sestupnou hranu lze získat odstraněním první negace vstupu CLK.
 		\end{itemize}
 	
 	\end{frame}

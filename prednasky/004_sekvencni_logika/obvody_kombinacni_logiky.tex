@@ -220,7 +220,7 @@
 		
 		\begin{itemize}
 			\item Každý výstup je aktivní právě při jedné kombinaci vstupů,
-			\item realizuje se pomocí funkcní AND (NAND pro inverzní logiku),
+			\item realizuje se pomocí hradel AND (NAND pro inverzní logiku),
 			\item je to základní stavební kámen multiplexoru a demultiplexoru.
 		\end{itemize}
 		
@@ -229,10 +229,31 @@
 	% =====================================================================================================================
 	\begin{frame}
     \frametitle{Dekodér - 1 z 8, zapojení}
-
-		\begin{center}
-			\includegraphics[scale=0.2]{fig/decoder_1_of_8.png}
-		\end{center}		
+    
+    \begin{minipage}[t][\textheight][t]{0.5\textwidth}
+      \vspace{-0.7\baselineskip}
+			\begin{center}
+        \includegraphics[scale=0.2]{fig/decoder_1_of_8.png}
+      \end{center}
+			
+		\end{minipage}
+		\begin{minipage}[t][\textheight][t]{0.45\textwidth}
+      \vspace{-0.7\baselineskip}
+      \begin{itemize}
+        \item Jeden minterm pro řádek tabulky:
+        \begin{align*}
+          Y0 =& \bar{A2}\bar{A1}\bar{A0} \\
+          Y1 =& \bar{A2}\bar{A1}A0 \\
+          Y2 =& \bar{A2}A1\bar{A0} \\
+          Y3 =& \bar{A2}A1A0 \\
+          Y4 =& A2\bar{A1}\bar{A0} \\
+          Y5 =& A2\bar{A1}A0 \\
+          Y6 =& A2A1\bar{A0} \\
+          Y7 =& A2A1A0 \\
+        \end{align*}
+      \end{itemize}
+			
+		\end{minipage}
 		
 	\end{frame}
 	
