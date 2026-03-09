@@ -117,18 +117,47 @@
   
 % =====================================================================================================================
 	\begin{frame}
-    \frametitle{D klopný obvod - hradlo 74HC74}
+    \frametitle{D klopný obvod - hradlo 74xx74}
 		\small
-		\begin{itemize}
-			\item RST KO zapojené do kaskády:
+		\begin{minipage}[t][\textheight][t]{0.4\textwidth}
+			\vspace{5mm}
+			\textbf{Symbol:}
+			\begin{center}
+				\includegraphics[width=0.50\textwidth]{fig/D_KO_hradlo.png}
+			\end{center}
+			
+			\begin{itemize}
+				\item $S$ a $R$ jsou asynchronní vstupy.
+			\end{itemize}
+			
+		\end{minipage}
+		\begin{minipage}[t][\textheight][t]{0.5\textwidth}
+
+		\vspace{5mm}
+		\begin{center}
+			\begin{tabular}{ c c c c | c c }
+				$CLK$ & $D$ & $S$ & $R$ & $Q$ & $\bar{Q}$ \\
+				\hline
+				x & x & 1 & 0 & 0 & 1 \\
+				x & x & 0 & 1 & 1 & 0 \\
+				x & x & 0 & 0 & 1 & 1 \\
+				$\uparrow$ & 0 & 1 & 1 & 0 & 1 \\
+				$\uparrow$ & 1 & 1 & 1 & 1 & 0 \\
+			\end{tabular}
+			
+			\vspace{4mm}
+			
+			\begin{itemize}
+				\item Reakce na hranu je značena trojúhelníčkem:
 				
-				\begin{center}
-					\includegraphics[width=0.8\textwidth]{fig/D_KO.png}
-				\end{center}
-        
-      \item Vstup D (Data) slouží k nastavení budoucí hodnoty,
-      \item stav je změněn jen při příchodu náběžné hrany na vstupu CLK (Clock),
-      \item reakci na sestupnou hranu lze získat odstraněním první negace vstupu CLK.
-		\end{itemize}
+				\begin{itemize}
+					\item uvnitř symbolu = náběžná hrana,
+					\item vně symbolu = sestupná hrana
+				\end{itemize}
+			\end{itemize}
+			
+		\end{center}
+
+		\end{minipage}
 	
 	\end{frame}
