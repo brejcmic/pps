@@ -81,14 +81,14 @@
       <a name="label" val="Y"/>
       <a name="type" val="output"/>
     </comp>
-    <comp lib="1" loc="(200,110)" name="NOT Gate"/>
+    <comp lib="1" loc="(200,170)" name="NOT Gate"/>
     <comp lib="1" loc="(280,130)" name="AND Gate"/>
     <comp lib="1" loc="(280,190)" name="AND Gate"/>
     <comp lib="1" loc="(280,250)" name="AND Gate"/>
     <comp lib="1" loc="(400,150)" name="OR Gate">
       <a name="inputs" val="3"/>
     </comp>
-    <comp lib="9" loc="(404,234)" name="Text">
+    <comp lib="9" loc="(400,230)" name="Text">
       <a name="text" val="Trvale 1 při (A, B) =1"/>
     </comp>
     <wire from="(130,110)" to="(150,110)"/>
@@ -100,9 +100,9 @@
     <wire from="(140,150)" to="(230,150)"/>
     <wire from="(140,230)" to="(230,230)"/>
     <wire from="(150,110)" to="(150,170)"/>
-    <wire from="(150,110)" to="(170,110)"/>
-    <wire from="(150,170)" to="(230,170)"/>
-    <wire from="(200,110)" to="(230,110)"/>
+    <wire from="(150,110)" to="(230,110)"/>
+    <wire from="(150,170)" to="(170,170)"/>
+    <wire from="(200,170)" to="(230,170)"/>
     <wire from="(280,130)" to="(350,130)"/>
     <wire from="(280,190)" to="(300,190)"/>
     <wire from="(280,250)" to="(320,250)"/>
@@ -135,23 +135,23 @@
       <a name="label" val="Y"/>
       <a name="type" val="output"/>
     </comp>
-    <comp lib="1" loc="(200,110)" name="NOT Gate"/>
+    <comp lib="1" loc="(200,170)" name="NOT Gate"/>
     <comp lib="1" loc="(280,130)" name="AND Gate"/>
     <comp lib="1" loc="(280,190)" name="AND Gate"/>
     <comp lib="1" loc="(400,150)" name="OR Gate"/>
-    <comp lib="9" loc="(181,89)" name="Text">
+    <comp lib="9" loc="(180,85)" name="Text">
       <a name="text" val="Invertor vytváří zpoždění"/>
     </comp>
-    <comp lib="9" loc="(279,238)" name="Text">
+    <comp lib="9" loc="(275,235)" name="Text">
       <a name="text" val="Problematický přechod je změna A při současném (B, C) =1"/>
     </comp>
     <wire from="(130,110)" to="(150,110)"/>
     <wire from="(130,150)" to="(230,150)"/>
     <wire from="(130,210)" to="(230,210)"/>
     <wire from="(150,110)" to="(150,170)"/>
-    <wire from="(150,110)" to="(170,110)"/>
-    <wire from="(150,170)" to="(230,170)"/>
-    <wire from="(200,110)" to="(230,110)"/>
+    <wire from="(150,110)" to="(230,110)"/>
+    <wire from="(150,170)" to="(170,170)"/>
+    <wire from="(200,170)" to="(230,170)"/>
     <wire from="(280,130)" to="(350,130)"/>
     <wire from="(280,190)" to="(300,190)"/>
     <wire from="(300,170)" to="(300,190)"/>
@@ -174,13 +174,13 @@
     <comp lib="5" loc="(310,160)" name="D Flip-Flop">
       <a name="appearance" val="logisim_evolution"/>
     </comp>
-    <comp lib="9" loc="(235,193)" name="Text">
-      <a name="text" val="(CLK)"/>
-    </comp>
-    <comp lib="9" loc="(237,176)" name="Text">
+    <comp lib="9" loc="(235,175)" name="Text">
       <a name="text" val="Q(N-1)"/>
     </comp>
-    <comp lib="9" loc="(440,154)" name="Text">
+    <comp lib="9" loc="(235,190)" name="Text">
+      <a name="text" val="(CLK)"/>
+    </comp>
+    <comp lib="9" loc="(440,150)" name="Text">
       <a name="text" val="Q(N)"/>
     </comp>
     <wire from="(260,210)" to="(300,210)"/>
@@ -223,16 +223,16 @@
     <comp lib="9" loc="(100,105)" name="Text">
       <a name="text" val="AND(N-1)"/>
     </comp>
-    <comp lib="9" loc="(379,84)" name="Text">
+    <comp lib="9" loc="(375,80)" name="Text">
       <a name="text" val="AND(N)"/>
     </comp>
     <comp lib="9" loc="(380,145)" name="Text">
       <a name="text" val="Q(N)"/>
     </comp>
-    <comp lib="9" loc="(94,186)" name="Text">
+    <comp lib="9" loc="(90,185)" name="Text">
       <a name="text" val="CLK"/>
     </comp>
-    <comp lib="9" loc="(96,145)" name="Text">
+    <comp lib="9" loc="(95,145)" name="Text">
       <a name="text" val="Q(N-1)"/>
     </comp>
     <wire from="(120,120)" to="(140,120)"/>
@@ -277,7 +277,7 @@
       <a name="label" val="Y"/>
       <a name="type" val="output"/>
     </comp>
-    <comp lib="1" loc="(200,110)" name="NOT Gate"/>
+    <comp lib="1" loc="(200,170)" name="NOT Gate"/>
     <comp lib="1" loc="(280,130)" name="AND Gate"/>
     <comp lib="1" loc="(280,190)" name="AND Gate"/>
     <comp lib="1" loc="(400,150)" name="OR Gate"/>
@@ -289,9 +289,9 @@
     <wire from="(130,210)" to="(230,210)"/>
     <wire from="(130,240)" to="(410,240)"/>
     <wire from="(150,110)" to="(150,170)"/>
-    <wire from="(150,110)" to="(170,110)"/>
-    <wire from="(150,170)" to="(230,170)"/>
-    <wire from="(200,110)" to="(230,110)"/>
+    <wire from="(150,110)" to="(230,110)"/>
+    <wire from="(150,170)" to="(170,170)"/>
+    <wire from="(200,170)" to="(230,170)"/>
     <wire from="(280,130)" to="(350,130)"/>
     <wire from="(280,190)" to="(300,190)"/>
     <wire from="(300,170)" to="(300,190)"/>

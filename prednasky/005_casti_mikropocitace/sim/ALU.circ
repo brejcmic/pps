@@ -99,58 +99,58 @@
     <comp lib="1" loc="(620,310)" name="NOR Gate">
       <a name="inputs" val="4"/>
     </comp>
-    <comp lib="9" loc="(226,184)" name="Text">
+    <comp lib="9" loc="(225,180)" name="Text">
       <a name="text" val="Vstupy"/>
     </comp>
-    <comp lib="9" loc="(297,363)" name="Text">
-      <a name="text" val="CMD"/>
-    </comp>
-    <comp lib="9" loc="(297,418)" name="Text">
-      <a name="text" val="1000"/>
-    </comp>
-    <comp lib="9" loc="(297,434)" name="Text">
-      <a name="text" val="1100"/>
-    </comp>
-    <comp lib="9" loc="(298,383)" name="Text">
-      <a name="text" val="0001"/>
-    </comp>
-    <comp lib="9" loc="(298,401)" name="Text">
-      <a name="text" val="0100"/>
-    </comp>
-    <comp lib="9" loc="(298,450)" name="Text">
+    <comp lib="9" loc="(294,443)" name="Text">
       <a name="text" val="1110"/>
     </comp>
-    <comp lib="9" loc="(380,433)" name="Text">
-      <a name="text" val="X+Y"/>
+    <comp lib="9" loc="(295,360)" name="Text">
+      <a name="text" val="CMD"/>
     </comp>
-    <comp lib="9" loc="(380,449)" name="Text">
-      <a name="text" val="X-Y"/>
+    <comp lib="9" loc="(295,380)" name="Text">
+      <a name="text" val="0001"/>
     </comp>
-    <comp lib="9" loc="(381,418)" name="Text">
-      <a name="text" val="X and Y"/>
+    <comp lib="9" loc="(295,400)" name="Text">
+      <a name="text" val="0100"/>
     </comp>
-    <comp lib="9" loc="(382,401)" name="Text">
+    <comp lib="9" loc="(295,415)" name="Text">
+      <a name="text" val="1000"/>
+    </comp>
+    <comp lib="9" loc="(295,430)" name="Text">
+      <a name="text" val="1100"/>
+    </comp>
+    <comp lib="9" loc="(380,400)" name="Text">
       <a name="text" val="X or Y"/>
     </comp>
-    <comp lib="9" loc="(385,363)" name="Text">
+    <comp lib="9" loc="(380,415)" name="Text">
+      <a name="text" val="X and Y"/>
+    </comp>
+    <comp lib="9" loc="(380,430)" name="Text">
+      <a name="text" val="X+Y"/>
+    </comp>
+    <comp lib="9" loc="(380,445)" name="Text">
+      <a name="text" val="X-Y"/>
+    </comp>
+    <comp lib="9" loc="(385,360)" name="Text">
       <a name="text" val="OPERACE"/>
     </comp>
-    <comp lib="9" loc="(385,383)" name="Text">
+    <comp lib="9" loc="(385,380)" name="Text">
       <a name="text" val="Negace X"/>
     </comp>
-    <comp lib="9" loc="(495,363)" name="Text">
+    <comp lib="9" loc="(495,360)" name="Text">
       <a name="text" val="Poznámka"/>
     </comp>
-    <comp lib="9" loc="(581,399)" name="Text">
+    <comp lib="9" loc="(580,395)" name="Text">
       <a name="text" val="Bity 0 a 1 určují negaci operandů"/>
     </comp>
-    <comp lib="9" loc="(581,418)" name="Text">
+    <comp lib="9" loc="(580,415)" name="Text">
       <a name="text" val="Bity 0 a 1 určují negaci operandů"/>
     </comp>
-    <comp lib="9" loc="(651,184)" name="Text">
+    <comp lib="9" loc="(650,180)" name="Text">
       <a name="text" val="Výstup"/>
     </comp>
-    <comp lib="9" loc="(658,254)" name="Text">
+    <comp lib="9" loc="(655,250)" name="Text">
       <a name="text" val="Příznaky"/>
     </comp>
     <comp loc="(490,200)" name="nible_alu"/>
@@ -649,7 +649,7 @@
     <comp lib="1" loc="(620,190)" name="Controlled Buffer"/>
     <comp lib="1" loc="(650,220)" name="Controlled Buffer"/>
     <comp lib="1" loc="(680,250)" name="Controlled Buffer"/>
-    <comp lib="9" loc="(751,282)" name="Text">
+    <comp lib="9" loc="(750,280)" name="Text">
       <a name="text" val="Sdílený vodič"/>
     </comp>
     <comp loc="(430,280)" name="decoder_1_of_8"/>
@@ -1274,10 +1274,10 @@
       <a name="label" val="ZERO"/>
       <a name="type" val="output"/>
     </comp>
-    <comp lib="9" loc="(124,182)" name="Text">
+    <comp lib="9" loc="(120,180)" name="Text">
       <a name="text" val="Vstupy"/>
     </comp>
-    <comp lib="9" loc="(720,143)" name="Text">
+    <comp lib="9" loc="(722,144)" name="Text">
       <a name="text" val="Výstup"/>
     </comp>
     <comp loc="(410,160)" name="nible_acumulator">
@@ -1296,7 +1296,10 @@
     <wire from="(180,180)" to="(180,270)"/>
     <wire from="(180,180)" to="(190,180)"/>
     <wire from="(180,270)" to="(420,270)"/>
-    <wire from="(410,160)" to="(440,160)"/>
+    <wire from="(410,160)" to="(420,160)"/>
+    <wire from="(420,130)" to="(420,160)"/>
+    <wire from="(420,130)" to="(680,130)"/>
+    <wire from="(420,160)" to="(440,160)"/>
     <wire from="(420,180)" to="(420,270)"/>
     <wire from="(420,180)" to="(440,180)"/>
     <wire from="(440,200)" to="(440,290)"/>
@@ -1304,6 +1307,7 @@
     <wire from="(660,180)" to="(690,180)"/>
     <wire from="(660,200)" to="(690,200)"/>
     <wire from="(670,120)" to="(670,160)"/>
-    <wire from="(670,160)" to="(690,160)"/>
+    <wire from="(680,130)" to="(680,160)"/>
+    <wire from="(680,160)" to="(690,160)"/>
   </circuit>
 </project>
