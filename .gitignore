@@ -37,6 +37,19 @@
 !*.circ
 !*.asc
 
-
 # assembly
-!*s.asm
+!*.asm
+!*.inc
+!*.s
+
+# Linker / config
+!*.ld
+!*.icf
+!*.map
+
+# ST Visual Develop
+!*.stw
+!*.stp
+!*.xml
+!*.cfg
+!*.ini
