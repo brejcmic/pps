@@ -194,6 +194,7 @@
     \end{center}
     
 	\end{frame}
+	
 % =====================================================================================================================
 	\begin{frame}
     \frametitle{Instrukční sada - příklad aritmetické instrukce}
@@ -207,6 +208,45 @@
       \begin{tabular}{l l}
         \textbf{\textcolor{blue}{INC} A} & ; inkrementace registru A \\
         \textbf{\textcolor{blue}{SUB} A, \$1A7} & ; A = A - (obsah paměti na adrese $(1A7)_{16}$)  \\
+      \end{tabular}
+    \end{center}
+    
+	\end{frame}
+	
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Instrukční sada - příklad skoky}
+    \small
+    \begin{center}
+      \includegraphics[width=0.80\textwidth]{fig/inst_jump.png}
+    \end{center}
+    
+    
+    \begin{center}
+      \begin{tabular}{l l}
+        \textbf{\textcolor{blue}{JP} cilSkoku} & ; do PC se nahraje adresa \textbf{cilSkoku} \\
+        \textbf{\textcolor{blue}{CALL} funkce} & ; uložení návratové adresy a skok na adresu \textbf{funkce}  \\
+				\textbf{\textcolor{blue}{RET}} & ; načtení návratové adresy a skok na tuto adresu  \\
+      \end{tabular}
+    \end{center}
+    
+	\end{frame}
+	
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Instrukční sada - příklad podmíněné skoky}
+    \small
+		Doplnění instrukce \textbf{\textcolor{blue}{JR[ ]}}
+    \begin{center}
+      \includegraphics[width=0.80\textwidth]{fig/inst_jump_cond.png}
+    \end{center}
+    
+		Tabulka udává nastavené příznaky (výsledek poslední instrukce) před voláníním \textbf{\textcolor{blue}{JR[ ]}}.
+    
+    \begin{center}
+      \begin{tabular}{l l}
+        \textbf{\textcolor{blue}{JRNE} cil} & ; skok na \textbf{cil}, pokud je Z = 0 \\
+        \textbf{\textcolor{blue}{JRC} cil} & ; skok na \textbf{cil}, pokud C = 1  \\
       \end{tabular}
     \end{center}
     

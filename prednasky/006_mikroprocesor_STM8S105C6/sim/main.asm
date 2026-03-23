@@ -1,50 +1,56 @@
 stm8/
-	title Prednaska 006 PPS
-	
-	.nolist
+
 	#include "mapping.inc"
-	#include "STM8S105C6.inc"
-	.list
 
-;-----------------------------------------------------------
-;	DEFINICE - DEFINICNI KONSTANTY
-;-----------------------------------------------------------
-		BYTES
-CISLO_BIN	equ	%10010110	; 150 binarne
-CISLO_DEC	equ	150	        ; 150 dekadicky
-CISLO_HEX	equ	$96	        ; 150 hexadecimalne
-
-;-----------------------------------------------------------
-;	PAMET RAM - POJMENOVANI PROMENNYCH
-;-----------------------------------------------------------
-	segment 'ram0'
-	
-moje_promenna	ds.b	1	        ; vyhrazeni 1 byte
-                                        ; pro promennou
-
-;-----------------------------------------------------------
-;	PAMET FLASH - PROGRAM
-;-----------------------------------------------------------
 	segment 'rom'
-        
-zacni_program.l
-        ld A, #CISLO_DEC
-        ld moje_promenna, A
-        
-smycka  dec moje_promenna
-        jreq zacni_program
-	jp smycka
+main.l
+	; initialize SP
+	ldw X,#stack_end
+	ldw SP,X
 
-;-----------------------------------------------------------
-;	FUNKCE PRERUSENI A VEKTORY
-;-----------------------------------------------------------
+	#ifdef RAM0	
+	; clear RAM0
+ram0_start.b EQU $ram0_segment_start
+ram0_end.b EQU $ram0_segment_end
+	ldw X,#ram0_start
+clear_ram0.l
+	clr (X)
+	incw X
+	cpw X,#ram0_end	
+	jrule clear_ram0
+	#endif
+
+	#ifdef RAM1
+	; clear RAM1
+ram1_start.w EQU $ram1_segment_start
+ram1_end.w EQU $ram1_segment_end	
+	ldw X,#ram1_start
+clear_ram1.l
+	clr (X)
+	incw X
+	cpw X,#ram1_end	
+	jrule clear_ram1
+	#endif
+
+	; clear stack
+stack_start.w EQU $stack_segment_start
+stack_end.w EQU $stack_segment_end
+	ldw X,#stack_start
+clear_stack.l
+	clr (X)
+	incw X
+	cpw X,#stack_end	
+	jrule clear_stack
+
+infinite_loop.l
+	jra infinite_loop
 
 	interrupt NonHandledInterrupt
 NonHandledInterrupt.l
 	iret
 
 	segment 'vectit'
-	dc.l {$82000000+zacni_program}	        ; reset
+	dc.l {$82000000+main}									; reset
 	dc.l {$82000000+NonHandledInterrupt}	; trap
 	dc.l {$82000000+NonHandledInterrupt}	; irq0
 	dc.l {$82000000+NonHandledInterrupt}	; irq1
@@ -77,5 +83,4 @@ NonHandledInterrupt.l
 	dc.l {$82000000+NonHandledInterrupt}	; irq28
 	dc.l {$82000000+NonHandledInterrupt}	; irq29
 
-				; konec zdrojoveho textu
 	end

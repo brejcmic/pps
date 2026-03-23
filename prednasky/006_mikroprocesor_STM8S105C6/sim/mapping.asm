@@ -16,10 +16,10 @@ stm8/
 	segment byte at stack_segment_start-stack_segment_end 'stack'
 
 	WORDS			; The following addresses are 16 bits long
-	segment byte at 4000-47FF 'eeprom'
+	segment byte at 4000-43FF 'eeprom'
 
 	WORDS			; The following addresses are 16 bits long
-	segment byte at 8080-27FFF 'rom'
+	segment byte at 8080-FFFF 'rom'
 
 	WORDS			; The following addresses are 16 bits long
 	segment byte at 8000-807F 'vectit'
