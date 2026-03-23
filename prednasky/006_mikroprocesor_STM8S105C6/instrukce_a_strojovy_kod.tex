@@ -1,0 +1,213 @@
+\section{\texorpdfstring{Instrukce a strojový kód}{Instrukce a strojovy kod}}
+
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Strojový kód STM8S105C6}
+		
+		\textbf{Instrukce:}
+		\begin{itemize}
+			\item jsou dlouhé 1 až 5 bytů a mají různou dobu zpracování,
+			\item obsahují informace o operandech,
+			\item obsahují informace o způsobu adresování (adresovací režim).
+		\end{itemize}
+		
+		\vspace{3mm}
+		\textbf{Strojový kód:}
+		
+		\begin{itemize}
+			\item je obsahem souboru HEX, kde jsou operační kódy instrukcí řazeny za sebou,
+			\item neexistuje oddělovač - délka instrukce je zřejmá z jejího operačního kódu,
+			\item HEX by bylo možné vytvořit přímo, ale je to extrémně obtížné - používáme jazyk symbolických adres, tj. assembler a překladač,
+			\item disassembler - získáme instrukce v assembleru, ale místo názvů proměnných budou adresy.
+		\end{itemize}
+
+	\end{frame}
+	
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Instrukce Load z datového listu STM8S105C6}
+		
+		
+		\begin{center}
+			\includegraphics[width=0.7\textwidth]{fig/instr_ld.png}
+		\end{center}
+
+	\end{frame}
+	
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Ukázka režimů adresování STM8S105C6}
+		Základní způsoby adresace:
+		
+		\begin{center}
+			\begin{tabular}{l l}
+				\textbf{bezprostřední} & \textcolor{blue}{LD A, \#\$hh} \\
+				\textbf{přímé} & \textcolor{blue}{LD A, \$hh} \\
+				               & \textcolor{blue}{LD A, \$HHhh} \\
+				\textbf{indexové} & \textcolor{blue}{LD A, (X)} \\
+				                  & \textcolor{blue}{LD A, (\$hh,X)} \\
+			\end{tabular}
+			\begin{tabular}{| p{5mm} | p{5mm} | p{5mm} | p{5mm} | p{5mm} |}
+			\hline
+				& A6 & hh &  &  \\
+			\hline
+				& B6 & hh &  &  \\
+			\hline
+				& B6 & HH & hh &  \\
+			\hline
+			  & F6 & & &  \\
+			\hline
+			  & E6 & hh & &  \\
+			\hline
+			\end{tabular}
+		\end{center}
+		
+		Pro složitější adresování přibývá prefix:
+		
+		\begin{center}
+			\begin{tabular}{l l}
+				\textbf{nepřímé} & \textcolor{blue}{LD A, [\$hh]} \\
+				\textbf{nepřímé indexové} & \textcolor{blue}{LD A, ([\$hh],X)} \\
+			\end{tabular}
+			\begin{tabular}{| p{5mm} | p{5mm} | p{5mm} | p{5mm} | p{5mm} |}
+			\hline
+				92 & C6 & hh &  &  \\
+			\hline
+				92 & D6 & hh &  &  \\
+			\hline
+			\end{tabular}
+		\end{center}
+
+	\end{frame}
+	
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Provádění instrukce STM8S105C6}
+		\textbf{Pipeline CPU} - postup vykonání instrukce v několika krocích:
+		\small
+		
+		\begin{minipage}[t][0.35\textheight][t]{0.75\textwidth}
+			\begin{enumerate}
+				\item \textcolor{blue}{\textbf{FETCH}} - dojde k načtení instrukce z paměti programu do \textbf{instrukčního registru},
+				\item \textcolor{blue}{\textbf{DECODE}} - dekódování instrukce,
+				\item \textcolor{blue}{\textbf{EXECUTE}} - provedení instrukce: operace ALU, operace s pamětí atd.
+			\end{enumerate}
+		\end{minipage}
+		\begin{minipage}[t][0.35\textheight][t]{0.2\textwidth}
+		\tiny
+		\vspace{0.5mm}
+			\begin{center}
+				\includegraphics[width=0.90\textwidth]{fig/pipeline.png}
+			\end{center}
+		\end{minipage}
+		
+		Lze provádět paralelně:
+		
+		\begin{center}
+			\begin{tabular}{c c c c}
+			\textbf{cykl} & \textbf{FETCH} & \textbf{DECODE} & \textbf{EXECUTE} \\ \hline
+			1 & instrukce 0 & - & - \\
+			2 & instrukce 1 & instrukce 0 & - \\
+			3 & instrukce 2 & instrukce 1 & instrukce 0 \\
+			\end{tabular}
+		\end{center}
+
+	Paralelní čtení instrukcí v Pipeline narušují instrukce skoků v programu: \textbf{jmp}, \textbf{call}, \textbf{ret} atd.
+	\end{frame}
+  
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Pipeline}
+    
+    \small
+    \begin{itemize}
+      \item Fetch má k dispozici 3x32 (=96) bit registr pojmenovaný F1, F2, F3,
+      \item registry se plní dle potřeby,
+      \item během provádění může dojít k blokování Pipeline - \textbf{Pipeline Stall}:
+      
+      \begin{itemize}
+        \item vlivem doby vykonávání instrukce nebo
+        \item doby dekódování instrukce.
+      \end{itemize}
+    \end{itemize}
+    
+    
+    \begin{center}
+      \includegraphics[width=0.60\textwidth]{fig/pipeline_1cy.png}
+    \end{center}
+	\end{frame}
+  
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Pipeline Stall a Flush - zpomalení toku}
+    \footnotesize
+    \textbf{Příklad blokování dekódování instrukce}
+    \begin{center}
+      \includegraphics[width=0.55\textwidth]{fig/pipeline_decode_stall.png}
+    \end{center}
+    
+    \textbf{Příklad vyprázdnění Pipeline vlivem skoku}
+    \begin{center}
+      \includegraphics[width=0.65\textwidth]{fig/pipeline_jump.png}
+    \end{center}
+	\end{frame}
+  
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Instrukční sada - Moodle}
+    
+    \begin{center}
+      \includegraphics[width=1.00\textwidth]{fig/moodle_tabs.png}
+    \end{center}
+    
+    
+    \begin{itemize}
+      \item Seznam instrukcí, jejich délek, počtu cyklů a parametrů,
+      \item tabulky příznaků a podmíněných skoků,
+      \item mapa paměti, seznam přerušení atd.
+    \end{itemize}
+    
+    \vspace{3mm}
+    \textcolor{red}{\textbf{Předpis řádku kódu s instrukcí:}}
+    \begin{center}
+      \begin{tabular}{l l l l l}
+      \textbf{[návěstí nebo tab.]} & \textbf{\textcolor{blue}{INSTRUKCE}} & \textbf{cíl,} & \textbf{zdroj} & \textbf{\textcolor{teal}{; komentář}} \\
+      \end{tabular}
+    \end{center}
+	\end{frame}
+  
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Instrukční sada - příklad instrukcí 8 bit přesunů}
+    \small
+    \begin{center}
+      \includegraphics[width=0.80\textwidth]{fig/inst_move.png}
+    \end{center}
+    
+    \begin{center}
+      \begin{tabular}{l l}
+        \textbf{\textcolor{blue}{LD} A, \#15} & ; přesun hodnoty 15 do registru A \\
+        \textbf{\textcolor{blue}{LD} A, 15} & ; přesun hodnoty z adresy 15 do reg. A \\
+        \textbf{\textcolor{blue}{MOV} PBDDR, \#\%11110000} & ; zápis $(11110000)_2$ do reg. PBDDR\\
+        \textbf{\textcolor{blue}{PUSH} A} & ; zápis hodnoty A do paměti \textbf{STACK}\\
+      \end{tabular}
+    \end{center}
+    
+	\end{frame}
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Instrukční sada - příklad aritmetické instrukce}
+    \small
+    \begin{center}
+      \includegraphics[width=0.80\textwidth]{fig/inst_arith.png}
+    \end{center}
+    
+    
+    \begin{center}
+      \begin{tabular}{l l}
+        \textbf{\textcolor{blue}{INC} A} & ; inkrementace registru A \\
+        \textbf{\textcolor{blue}{SUB} A, \$1A7} & ; A = A - (obsah paměti na adrese $(1A7)_{16}$)  \\
+      \end{tabular}
+    \end{center}
+    
+	\end{frame}
