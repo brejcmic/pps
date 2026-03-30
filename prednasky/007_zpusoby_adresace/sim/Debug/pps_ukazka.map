@@ -2,20 +2,20 @@
 Segment List
 ------------
 
-c:\users\brejc\documents\001_repozitare\002_skola\pps\prednasky\006_mikroprocesor_stm8s105c6\sim\src\zaklad_programu.asm[1]   20-   27         0 -        0                 'ram0'  [void]
-c:\users\brejc\documents\001_repozitare\002_skola\pps\prednasky\006_mikroprocesor_stm8s105c6\sim\src\zaklad_programu.asm[2]   28-   45      8080 -     808B                 'rom'  [text]
-c:\users\brejc\documents\001_repozitare\002_skola\pps\prednasky\006_mikroprocesor_stm8s105c6\sim\src\zaklad_programu.asm[3]   46-   80      8000 -     807F                 'vectit'  [data]
-c:\users\brejc\documents\001_repozitare\002_skola\pps\prednasky\006_mikroprocesor_stm8s105c6\sim\stm8s105c6.asm[2]   16-  331      5000 -     7F76                 'periph2'  [void] <c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm>
+c:\users\brejc\documents\001_repozitare\002_skola\pps\prednasky\007_zpusoby_adresace\sim\src\program_soubeh.asm[1]   26-   37         0 -        2                 'ram0'  [void]
+c:\users\brejc\documents\001_repozitare\002_skola\pps\prednasky\007_zpusoby_adresace\sim\src\program_soubeh.asm[2]   38-   88      8080 -     80C3                 'rom'  [text]
+c:\users\brejc\documents\001_repozitare\002_skola\pps\prednasky\007_zpusoby_adresace\sim\src\program_soubeh.asm[3]   89-  123      8000 -     807F                 'vectit'  [data]
+c:\users\brejc\documents\001_repozitare\002_skola\pps\prednasky\007_zpusoby_adresace\sim\stm8s105c6.asm[2]   16-  331      5000 -     7F76                 'periph2'  [void] <c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm>
 
 
 Class List
 ----------
 
-0 '        ram0'   byte from        0 to        0 (lim       FF) =  0% D
+0 '        ram0'   byte from        0 to        2 (lim       FF) =  0% D
 0 '        ram1'   byte from      100 to       FF (lim      5FF) =  0% V
 0 '       stack'   byte from      600 to      5FF (lim      7FF) =  0% V
 0 '      eeprom'   byte from     4000 to     3FFF (lim     43FF) =  0% V
-0 '         rom'   byte from     8080 to     808B (lim     FFFF) =  0% C
+0 '         rom'   byte from     8080 to     80C3 (lim     FFFF) =  0% C
 0 '      vectit'   byte from     8000 to     807F (lim     807F) =100% S
 0 '      periph'   byte from        0 to FFFFFFFF (lim       7F) =  0% V
 0 '     periph2'   byte from     5000 to     7F76 (lim FFFFFFFF) =  0% D
@@ -121,15 +121,15 @@ ITC_SPR5                              7F74  WORD  c:\program files (x86)\stmicro
 ITC_SPR6                              7F75  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(329)
 ITC_SPR7                              7F76  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(330)
 
+PB_ODR                                5005  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(29)
+PB_DDR                                5007  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(31)
+PB_CR1                                5008  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(32)
 PA_ODR                                5000  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(21)
 PA_IDR                                5001  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(22)
 PA_DDR                                5002  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(23)
 PA_CR1                                5003  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(24)
 PA_CR2                                5004  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(25)
-PB_ODR                                5005  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(29)
 PB_IDR                                5006  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(30)
-PB_DDR                                5007  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(31)
-PB_CR1                                5008  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(32)
 PB_CR2                                5009  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(33)
 PC_ODR                                500A  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(37)
 PC_IDR                                500B  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(38)

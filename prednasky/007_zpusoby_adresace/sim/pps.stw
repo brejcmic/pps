@@ -1,0 +1,12 @@
+;	STMicroelectronics Workspace file
+
+[Version]
+Keyword=ST7Workspace-V0.7
+
+[Project0]
+Filename=pps_ukazka.stp
+Dependencies=
+[Options]
+ActiveProject=pps_ukazka
+ActiveConfig=Debug
+AddSortedElements=1

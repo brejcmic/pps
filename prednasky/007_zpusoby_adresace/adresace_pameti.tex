@@ -82,7 +82,7 @@
 	\begin{frame}
     \frametitle{Bezprostřední adresace}
 		
-		\textbf{Příklad:} \textcolor{blue}{\textbf{LD}} A, \#\$01
+		\textbf{Příklad:} \textcolor{blue}{\textbf{LD}} A, \#\$01 \textcolor{teal}{; křížek před hodnotou}
 		\small
 		\begin{center}
 			\begin{tabular}{c | c}
@@ -282,13 +282,54 @@
 	\begin{frame}
     \frametitle{Nepřímá adresace - krátký ukazatel}
 		
-		\textbf{Příklad:} \textcolor{blue}{\textbf{LD}} A, [\$40.w] \textcolor{teal}
+		\textbf{Příklad:} \textcolor{blue}{\textbf{LD}} A, [\$40.w] \textcolor{teal}{; ukazatel ma adresu 0x0040}
 		\small
 		\begin{center}
 			\begin{tabular}{c | c}
 				\textbf{Před výkonem instrukce} & \textbf{Po vykonání instrukce} \\ \\
 				
 				\includegraphics[width=0.45\textwidth]{fig/neprima_adresace_K.png} & \includegraphics[width=0.45\textwidth]{fig/neprima_adresace_K_po.png} \\
+				
+			\end{tabular}
+		\end{center}
+
+	\end{frame}
+	
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Relativní adresace}
+		
+		\begin{itemize}
+			\item používá se především u podmíněných a relativních skoků:
+			
+			\begin{itemize}
+				\item \textcolor{blue}{\textbf{JRxx}} navesti \textcolor{teal}{; za xx se doplňuje reakce na příznak}
+				\item \textcolor{blue}{\textbf{JRA}} navesti \textcolor{teal}{; relativní skok vždy}
+				\item \textcolor{blue}{\textbf{CALLR}} navesti \textcolor{teal}{; relativní volání funkce}
+			\end{itemize}
+			
+			\vspace{2mm}
+			\item pozor na absolutní skoky jako \textcolor{blue}{\textbf{JP}}, ty používají přimé adresování,
+			\vspace{2mm}
+			\item při relativní adresaci se vypočítává nová hodnota \textbf{PC} přičtením \textbf{8~bit znaménkového offsetu},
+			\item tedy lze skočit jen o 127 byte dále nebo o 128 byte zpět,
+			\vspace{2mm}
+			\item relativní skoky zaberou méně cyklů než absolutní skoky (\textcolor{blue}{\textbf{JRA}}(2~cy)~proti~\textcolor{blue}{\textbf{JP}}(5~cy)).
+		\end{itemize}
+
+	\end{frame}
+	
+% =====================================================================================================================
+	\begin{frame}
+    \frametitle{Relativní adresace - relativní skok}
+		
+		\textbf{Příklad:} \textcolor{blue}{\textbf{JREQ}} navesti \textcolor{teal}{; skok pro Z=1 na navesti}
+		\small
+		\begin{center}
+			\begin{tabular}{c | c}
+				\textbf{Před výkonem instrukce} & \textbf{Skok pro Z=1 splněn} \\ \\
+				
+				\includegraphics[width=0.45\textwidth]{fig/relativni_adresace.png} & \includegraphics[width=0.45\textwidth]{fig/relativni_adresace_po.png} \\
 				
 			\end{tabular}
 		\end{center}
