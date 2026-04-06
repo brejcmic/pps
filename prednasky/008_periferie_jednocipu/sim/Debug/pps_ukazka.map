@@ -2,20 +2,20 @@
 Segment List
 ------------
 
-c:\users\brejc\documents\001_repozitare\002_skola\pps\prednasky\007_zpusoby_adresace\sim\src\program_pole.asm[1]   26-   33         0 -        0                 'ram0'  [void]
-c:\users\brejc\documents\001_repozitare\002_skola\pps\prednasky\007_zpusoby_adresace\sim\src\program_pole.asm[2]   34-   96      8080 -     80BF                 'rom'  [textdata]
-c:\users\brejc\documents\001_repozitare\002_skola\pps\prednasky\007_zpusoby_adresace\sim\src\program_pole.asm[3]   97-  131      8000 -     807F                 'vectit'  [data]
+c:\users\brejc\documents\001_repozitare\002_skola\pps\prednasky\008_periferie_jednocipu\sim\src\adc_pole.asm[1]   26-   35         0 -        1                 'ram0'  [void]
+c:\users\brejc\documents\001_repozitare\002_skola\pps\prednasky\008_periferie_jednocipu\sim\src\adc_pole.asm[2]   36-   96      8080 -     80D9                 'rom'  [text]
+c:\users\brejc\documents\001_repozitare\002_skola\pps\prednasky\008_periferie_jednocipu\sim\src\adc_pole.asm[3]   97-  131      8000 -     807F                 'vectit'  [data]
 c:\users\brejc\documents\001_repozitare\002_skola\pps\prednasky\007_zpusoby_adresace\sim\stm8s105c6.asm[2]   16-  331      5000 -     7F76                 'periph2'  [void] <c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm>
 
 
 Class List
 ----------
 
-0 '        ram0'   byte from        0 to        0 (lim       FF) =  0% D
+0 '        ram0'   byte from        0 to        1 (lim       FF) =  0% D
 0 '        ram1'   byte from      100 to       FF (lim      5FF) =  0% V
 0 '       stack'   byte from      600 to      5FF (lim      7FF) =  0% V
 0 '      eeprom'   byte from     4000 to     3FFF (lim     43FF) =  0% V
-0 '         rom'   byte from     8080 to     80BF (lim     FFFF) =  0% CS
+0 '         rom'   byte from     8080 to     80D9 (lim     FFFF) =  0% C
 0 '      vectit'   byte from     8000 to     807F (lim     807F) =100% S
 0 '      periph'   byte from        0 to FFFFFFFF (lim       7F) =  0% V
 0 '     periph2'   byte from     5000 to     7F76 (lim FFFFFFFF) =  0% D
@@ -27,6 +27,11 @@ External Label list
 
 Symbol Name                       Value     Scope  Def(line)
 
+ADC_CSR                               5400  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(299)
+ADC_CR1                               5401  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(300)
+ADC_CR2                               5402  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(301)
+ADC_DRH                               5404  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(303)
+ADC_TDRH                              5406  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(305)
 AWU_CSR                               50F0  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(127)
 AWU_APR                               50F1  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(128)
 AWU_TBR                               50F2  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(129)
@@ -50,13 +55,8 @@ ADC_DB8RH                             53F0  WORD  c:\program files (x86)\stmicro
 ADC_DB8RL                             53F1  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(295)
 ADC_DB9RH                             53F2  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(296)
 ADC_DB9RL                             53F3  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(297)
-ADC_CSR                               5400  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(299)
-ADC_CR1                               5401  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(300)
-ADC_CR2                               5402  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(301)
 ADC_CR3                               5403  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(302)
-ADC_DRH                               5404  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(303)
 ADC_DRL                               5405  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(304)
-ADC_TDRH                              5406  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(305)
 ADC_TDRL                              5407  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(306)
 ADC_HTRH                              5408  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(307)
 ADC_HTRL                              5409  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(308)

@@ -239,16 +239,16 @@ String.6.0=2026,3,23,21,11,49
 [Root.Source Files.mapping.asm]
 ElemType=File
 PathName=mapping.asm
-Next=Root.Source Files.src\program_pole.asm
+Next=Root.Source Files.src\adc.asm
 
-[Root.Source Files.src\program_pole.asm]
+[Root.Source Files.src\adc.asm]
 ElemType=File
-PathName=src\program_pole.asm
-Next=Root.Source Files.src\program_soubeh.asm
+PathName=src\adc.asm
+Next=Root.Source Files.stm8s105c6.asm
 
-[Root.Source Files.src\program_soubeh.asm]
+[Root.Source Files.stm8s105c6.asm]
 ElemType=File
-PathName=src\program_soubeh.asm
+PathName=stm8s105c6.asm
 
 [Root.Include Files]
 ElemType=Folder
