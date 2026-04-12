@@ -15,7 +15,7 @@ INI_PB_CR1	equ	%11111111	; vse push/pull
 INI_PB_ODR	equ	%11111111	; 1 zhasne LED
 
 ; konstanty funkce wait
-INI_TIM2PSCR	equ	9		; preddelicka 512
+INI_TIM2PSCR	equ	6		; preddelicka 512
 INI_TIM2CR1     equ     %00000001       ; spustit citac
 INI_TIM2IER     equ     %00000000       ; bez preruseni
 

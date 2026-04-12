@@ -14,6 +14,9 @@ INI_PB_DDR	equ	%11111111	; vse vystup
 INI_PB_CR1	equ	%11111111	; vse push/pull
 INI_PB_ODR	equ	%11111111	; 1 zhasne LED
 
+; cilova pozice ve Fibonacciho posloupnosti
+TOP_IDX         equ     13
+
 ; konstanty funkce wait
 INI_POC1	equ	5		; pocet pruchodu
                                         ; vnejsiho cyklu
@@ -28,8 +31,8 @@ INI_Y		equ	50000		; pocet pruchodu
 ; promenna funkce wait v RAM
 poc1	ds.b	1			; rezervace 1 byte
 
-vysl    ds.b    1
-
+; aktualni poyice ve Fibonacciho posloupnosti
+idx     ds.b    1
 
 ;	PROGRAM
 ;-----------------------------------------------------------
@@ -39,25 +42,43 @@ vysl    ds.b    1
 main.l	mov     PB_ODR, #INI_PB_ODR     ; stav vystupu pinu
         mov     PB_CR1, #INI_PB_CR1     ; typ totemu pinu
         mov     PB_DDR, #INI_PB_ODR     ; smer pinu
-        
-        ; inicializace ADC
-        mov     ADC_TDRH, #%00000011    ; vyrazeni schmitt.
-                                        ; KO na PE6 a PE7
-        mov     ADC_CSR, #%000001001    ; volba AIN9
-        mov     ADC_CR2, #%000000000    ; zarovnani vlevo
-        mov     ADC_CR1, #%000000001    ; single, ADON=1
 
         ; inicializace hodnot promennych
-start   bset    ADC_CR1, #0             ; znovu ADON=1
+start   mov      idx, #0                ; idx=0
+        ld      A, idx                  ; A = idx
         
-        ; cekani na vysledek
-smycka  btjf    ADC_CSR, #7, smycka     ; skok pri EOC=0
-        ld      A, ADC_DRH              ; A = ADC vysl.
-        ld      A, vysl
+        ; smycka dokud je idx =< TOP_IDX
+smycka  call    fibona                  ; volani funkce
         cpl     A                       ; negace A
         ld      PB_ODR, A               ; vystup LED = A
-        bres    ADC_CSR, #7             ; nastaveni EOC=0
+        call    wait                    ; cekat 0,5 s
+        inc     idx                     ; idx = idx+1
+        
+        ; test konce
+        ld      A, idx                  ; A = idx
+        cp      A, #TOP_IDX             ; test (A-TOP_IDX)
+        jrule   smycka                  ; skok pri 
+                                        ; (A-TOP_IDX) < 0
         jp      start                   ; skok na start
+        
+fibona  cp      A, #1                   ; test (A-1)
+        jrugt    vice                   ; A > 1
+        ret                             ; vraci A
+vice    dec     A                       ; A=A-1
+        push    A                       ; (SP) = A, SP+1
+        call    fibona                  ; fibona(A-1)
+        push    A                       ; ulozeni vysledku
+        ld      A, ($02,SP)             ; A = idx
+        dec     A                       ; A=A-1
+        call    fibona                  ; fibona(A-2)
+        add     A, ($01,SP)             ; secteni vysledku
+        ld      ($02,SP), A             ; ulozeni vysledku
+                                        ; na nejvzdalenejsi
+                                        ; pozici ve STACKu
+        ; obnova SP a nahrani navratove hodnoty
+        pop     A
+        pop     A                       ; spravny vysledek
+        ret
 
 ;	podprogram zpozdeni 0,5 s (pro fCPU = 2 MHz)
 ;-----------------------------------------------------------

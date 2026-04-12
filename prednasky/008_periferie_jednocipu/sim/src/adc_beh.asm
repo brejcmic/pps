@@ -43,7 +43,7 @@ main.l	mov     PB_ODR, #INI_PB_ODR     ; stav vystupu pinu
         ; inicializace ADC
         mov     ADC_TDRH, #%00000011    ; vyrazeni schmitt.
                                         ; KO na PE6 a PE7
-        mov     ADC_CSR, #%000001001    ; volba AIN9
+        mov     ADC_CSR, #%000001000    ; volba AIN9
         mov     ADC_CR2, #%000000000    ; zarovnani vlevo
         mov     ADC_CR1, #%000000001    ; single, ADON=1
         
@@ -52,7 +52,7 @@ start   bset    ADC_CR1, #0             ; znovu ADON=1
         
         ; cekani na vysledek
 smycka  btjf    ADC_CSR, #7, smycka     ; skok pri EOC=0
-
+        bres    ADC_CSR, #7
         ld      A, ADC_DRH              ; A = ADC vysl.
         mov     vyst, #%00000001
         
@@ -64,8 +64,8 @@ dekr    sub     A, #32
 hotovo  ld      A, vyst
         cpl     A                       ; negace A
         ld      PB_ODR, A               ; vystup LED = A
-        call    wait                    ; cekat 0,5 s
-        jp      smycka                  ; skok na start
+        bres    ADC_CSR, #7
+        jp      start                   ; skok na start
 
 ;	podprogram zpozdeni 0,5 s (pro fCPU = 2 MHz)
 ;-----------------------------------------------------------

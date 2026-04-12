@@ -2,19 +2,20 @@
 Segment List
 ------------
 
-c:\users\brejc\documents\001_repozitare\002_skola\pps\prednasky\008_periferie_jednocipu\sim\src\tim2.asm[2]   31-   58      8080 -     80B0                 'rom'  [text]
-c:\users\brejc\documents\001_repozitare\002_skola\pps\prednasky\008_periferie_jednocipu\sim\src\tim2.asm[3]   59-   93      8000 -     807F                 'vectit'  [data]
-c:\users\brejc\documents\001_repozitare\002_skola\pps\prednasky\007_zpusoby_adresace\sim\stm8s105c6.asm[2]   16-  331      5000 -     7F76                 'periph2'  [void] <c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm>
+c:\users\brejc\documents\001_repozitare\002_skola\pps\prednasky\009_funkce_a_preruseni\sim\src\fibonnaci.asm[1]   29-   38         0 -        1                 'ram0'  [void]
+c:\users\brejc\documents\001_repozitare\002_skola\pps\prednasky\009_funkce_a_preruseni\sim\src\fibonnaci.asm[2]   39-  109      8080 -     80D8                 'rom'  [text]
+c:\users\brejc\documents\001_repozitare\002_skola\pps\prednasky\009_funkce_a_preruseni\sim\src\fibonnaci.asm[3]  110-  144      8000 -     807F                 'vectit'  [data]
+c:\users\brejc\documents\001_repozitare\002_skola\pps\prednasky\009_funkce_a_preruseni\sim\stm8s105c6.asm[2]   16-  331      5000 -     7F76                 'periph2'  [void] <c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm>
 
 
 Class List
 ----------
 
-0 '        ram0'   byte from        0 to FFFFFFFF (lim       FF) =  0% V
+0 '        ram0'   byte from        0 to        1 (lim       FF) =  0% D
 0 '        ram1'   byte from      100 to       FF (lim      5FF) =  0% V
 0 '       stack'   byte from      600 to      5FF (lim      7FF) =  0% V
 0 '      eeprom'   byte from     4000 to     3FFF (lim     43FF) =  0% V
-0 '         rom'   byte from     8080 to     80B0 (lim     FFFF) =  0% C
+0 '         rom'   byte from     8080 to     80D8 (lim     FFFF) =  0% C
 0 '      vectit'   byte from     8000 to     807F (lim     807F) =100% S
 0 '      periph'   byte from        0 to FFFFFFFF (lim       7F) =  0% V
 0 '     periph2'   byte from     5000 to     7F76 (lim FFFFFFFF) =  0% D
@@ -162,12 +163,6 @@ SPI_CRCPR                             5205  WORD  c:\program files (x86)\stmicro
 SPI_RXCRCR                            5206  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(144)
 SPI_TXCRCR                            5207  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(145)
 
-TIM2_CR1                              5300  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(221)
-TIM2_IER                              5301  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(222)
-TIM2_SR1                              5302  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(223)
-TIM2_PSCR                             530C  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(233)
-TIM2_ARRH                             530D  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(234)
-TIM2_ARRL                             530E  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(235)
 TIM1_CR1                              5250  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(185)
 TIM1_CR2                              5251  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(186)
 TIM1_SMCR                             5252  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(187)
@@ -200,6 +195,9 @@ TIM1_CCR4L                            526C  WORD  c:\program files (x86)\stmicro
 TIM1_BKR                              526D  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(214)
 TIM1_DTR                              526E  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(215)
 TIM1_OISR                             526F  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(216)
+TIM2_CR1                              5300  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(221)
+TIM2_IER                              5301  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(222)
+TIM2_SR1                              5302  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(223)
 TIM2_SR2                              5303  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(224)
 TIM2_EGR                              5304  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(225)
 TIM2_CCMR1                            5305  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(226)
@@ -209,6 +207,9 @@ TIM2_CCER1                            5308  WORD  c:\program files (x86)\stmicro
 TIM2_CCER2                            5309  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(230)
 TIM2_CNTRH                            530A  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(231)
 TIM2_CNTRL                            530B  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(232)
+TIM2_PSCR                             530C  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(233)
+TIM2_ARRH                             530D  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(234)
+TIM2_ARRL                             530E  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(235)
 TIM2_CCR1H                            530F  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(236)
 TIM2_CCR1L                            5310  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(237)
 TIM2_CCR2H                            5311  WORD  c:\program files (x86)\stmicroelectronics\st_toolset\asm\include\STM8S105C_S.asm(238)
