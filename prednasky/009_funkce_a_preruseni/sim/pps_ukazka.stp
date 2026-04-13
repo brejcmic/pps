@@ -239,11 +239,11 @@ String.6.0=2026,3,23,21,11,49
 [Root.Source Files.mapping.asm]
 ElemType=File
 PathName=mapping.asm
-Next=Root.Source Files.src\fibonacci.asm
+Next=Root.Source Files.src\tim2.asm
 
-[Root.Source Files.src\fibonacci.asm]
+[Root.Source Files.src\tim2.asm]
 ElemType=File
-PathName=src\fibonacci.asm
+PathName=src\tim2.asm
 Next=Root.Source Files.stm8s105c6.asm
 
 [Root.Source Files.stm8s105c6.asm]
