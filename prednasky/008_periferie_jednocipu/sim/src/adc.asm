@@ -47,17 +47,17 @@ main.l	mov     PB_ODR, #INI_PB_ODR     ; stav vystupu pinu
         mov     ADC_CR2, #%000000000    ; zarovnani vlevo
         mov     ADC_CR1, #%000000001    ; single, ADON=1
 
-        ; inicializace hodnot promennych
-start   bset    ADC_CR1, #0             ; znovu ADON=1
+        ; start prevodu
+start   bres    ADC_CSR, #7             ; nastaveni EOC=0
+        bset    ADC_CR1, #0             ; znovu ADON=1
         
         ; cekani na vysledek
 smycka  btjf    ADC_CSR, #7, smycka     ; skok pri EOC=0
         ld      A, ADC_DRH              ; A = ADC vysl.
-        ld      A, vysl
         cpl     A                       ; negace A
         ld      PB_ODR, A               ; vystup LED = A
-        bres    ADC_CSR, #7             ; nastaveni EOC=0
-        jp      start                   ; skok na start
+        
+l                l¨jp      start                   ; skok na start
 
 ;	podprogram zpozdeni 0,5 s (pro fCPU = 2 MHz)
 ;-----------------------------------------------------------

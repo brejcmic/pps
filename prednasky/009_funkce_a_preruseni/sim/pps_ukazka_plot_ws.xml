@@ -64,15 +64,15 @@
 		</group>
 	</groups>
 	<markers count="1">
-		<marker alpha="255" b="255" g="0" name="MainMarker" r="0" time="375030750"></marker>
+		<marker alpha="255" b="255" g="0" name="MainMarker" r="0" time="26625"></marker>
 	</markers>
 </model>
 <workspace>
 	<active_group>Signals</active_group>
 	<time>
 		<time_min>0</time_min>
-		<time_max>8363372125</time_max>
-		<time_pos>375029132</time_pos>
+		<time_max>26625</time_max>
+		<time_pos>24983</time_pos>
 		<time_range>1642</time_range>
 	</time>
 	<window bottom="1036" left="-4" right="1924" top="-4">

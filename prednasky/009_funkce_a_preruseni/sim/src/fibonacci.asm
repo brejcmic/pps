@@ -51,7 +51,7 @@ start   mov      idx, #0                ; idx=0
 smycka  call    fibona                  ; volani funkce
         cpl     A                       ; negace A
         ld      PB_ODR, A               ; vystup LED = A
-        call    wait                    ; cekat 0,5 s
+        ;call    wait                    ; cekat 0,5 s
         inc     idx                     ; idx = idx+1
         
         ; test konce
@@ -62,7 +62,7 @@ smycka  call    fibona                  ; volani funkce
         jp      start                   ; skok na start
         
 fibona  cp      A, #1                   ; test (A-1)
-        jrugt    vice                   ; A > 1
+        jrugt   vice                    ; A > 1
         ret                             ; vraci A
 vice    dec     A                       ; A=A-1
         push    A                       ; (SP) = A, SP+1
