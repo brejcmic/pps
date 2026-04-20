@@ -1,5 +1,5 @@
 import asyncio
-from asyncua import Server, ua
+from asyncua import Server
 
 
 async def main():
@@ -35,7 +35,7 @@ async def main():
 
             if v >= 50:
                 await teplota.write_value(23.5)
-                await tlak.write_value(v + 1.0)
+                await tlak.write_value(1.0)
             else:
                 await teplota.write_value(v + 0.1)
                 v = await tlak.read_value()
