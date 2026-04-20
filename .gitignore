@@ -56,3 +56,6 @@
 
 # Control Web
 !*.cw
+
+# Python
+!*.py
