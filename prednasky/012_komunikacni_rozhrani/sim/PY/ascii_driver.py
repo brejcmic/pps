@@ -35,7 +35,8 @@ class SerialExample:
     def transaction_call(self):
         response = self.__dev.readline()
         if len(response) > 0:
-            if response == "LED0H":
+            print(response)
+            if response == b'LED0H\n':
                 print("Green ---> Blue [XX]")
                 self.__dev.write(b'LED1H\n')
                 self.__dev.flush()
