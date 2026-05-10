@@ -24,7 +24,8 @@ class I2CExample:
         """
         Uzavření komunikace
         """
-        self.__dev.close()
+        if self.__dev is not None and self.__dev.is_open:
+            self.__dev.close()
 
     def transaction_call(self):
         int_list = [ord(i) for i in 'B1B13PPS\n'.split()]
