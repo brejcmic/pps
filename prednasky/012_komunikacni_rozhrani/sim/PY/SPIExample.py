@@ -26,13 +26,13 @@ class SPIExample:
         """
         Uzavření komunikace
         """
-        if self.__dev is not None and self.__dev.is_open:
+        if self.__dev is not None:
             self.__dev.close()
 
     def transaction_call(self):
-        int_list = [ord(i) for i in 'B1B13PPS\n'.split()]
+        int_list = list(b'B1B13PPS\n')
         response = self.__dev.xfer2(int_list)
-        print("Přijata zpráva: {0}".format(response))
+        print("Přijata zpráva: {0}".format(bytes(response).decode('ascii')))
 
 
 if __name__ == '__main__':
