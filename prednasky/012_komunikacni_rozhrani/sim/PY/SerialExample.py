@@ -25,6 +25,12 @@ class SerialExample:
                                    timeout=2)
         self.__bytes_cnt = 0
 
+    def __del__(self):
+        """
+        Uzavření komunikace
+        """
+        self.__dev.close()
+
     def transaction_call(self):
         self.__bytes_cnt = self.__dev.write(b'B1B13PPS\n')
         self.__dev.flush()

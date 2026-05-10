@@ -20,6 +20,12 @@ class I2CExample:
         """
         self.__dev = smbus2.SMBus(bus=1)
 
+    def __del__(self):
+        """
+        Uzavření komunikace
+        """
+        self.__dev.close()
+
     def transaction_call(self):
         int_list = [ord(i) for i in 'B1B13PPS\n'.split()]
         self.__dev.write_i2c_block_data(i2c_addr=44, register=9, data=int_list)

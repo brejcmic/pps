@@ -22,6 +22,12 @@ class SPIExample:
         self.__dev.open(bus=0, device=1)
         self.__dev.max_speed_hz = 100000
 
+    def __del__(self):
+        """
+        Uzavření komunikace
+        """
+        self.__dev.close()
+
     def transaction_call(self):
         int_list = [ord(i) for i in 'B1B13PPS\n'.split()]
         response = self.__dev.xfer2(int_list)
