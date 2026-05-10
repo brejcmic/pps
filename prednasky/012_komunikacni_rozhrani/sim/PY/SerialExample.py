@@ -29,7 +29,8 @@ class SerialExample:
         """
         Uzavření komunikace
         """
-        self.__dev.close()
+        if self.__dev is not None and self.__dev.is_open:
+            self.__dev.close()
 
     def transaction_call(self):
         self.__bytes_cnt = self.__dev.write(b'B1B13PPS\n')
