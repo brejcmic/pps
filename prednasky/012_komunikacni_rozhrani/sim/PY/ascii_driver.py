@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Filename: ascii?driver.py
+Filename: ascii_driver.py
 Author: Michal Brejcha
 Date: 2026-05-07
 Version: 1.0
@@ -10,7 +10,7 @@ Description: Ukázka komunikace s prostředím ControlWeb
 
 import serial
 
-class SerialExample:
+class AsciiDriver:
     """
     Objekt ukázkového příkladu sériové komunikace
     """
@@ -46,7 +46,7 @@ class SerialExample:
                 self.__dev.flush()
 
 if __name__ == '__main__':
-    obj = SerialExample()
+    obj = AsciiDriver()
 
     while True:
         obj.transaction_call()
