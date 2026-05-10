@@ -24,11 +24,11 @@ class I2CExample:
         """
         Uzavření komunikace
         """
-        if self.__dev is not None and self.__dev.is_open:
+        if self.__dev is not None:
             self.__dev.close()
 
     def transaction_call(self):
-        int_list = [ord(i) for i in 'B1B13PPS\n'.split()]
+        int_list = list(b'B1B13PPS\n')
         self.__dev.write_i2c_block_data(i2c_addr=44, register=9, data=int_list)
 
 
