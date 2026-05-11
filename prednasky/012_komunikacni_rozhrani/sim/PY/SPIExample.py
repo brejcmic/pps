@@ -21,6 +21,7 @@ class SPIExample:
         self.__dev = spidev.SpiDev()
         self.__dev.open(bus=0, device=1)
         self.__dev.max_speed_hz = 100000
+        self.__dev.mode = 0b00
 
     def __del__(self):
         """
