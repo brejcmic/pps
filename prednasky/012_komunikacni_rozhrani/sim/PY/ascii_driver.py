@@ -33,10 +33,10 @@ class AsciiDriver:
             self.__dev.close()
 
     def transaction_call(self):
-        response = self.__dev.readline()
-        if len(response) > 0:
-            print(response)
-            if response == b'LED0H\n':
+        response = self.__dev.readline()        # čekání na řetězec
+        if len(response) > 0:                   # kontrola příjmu
+            print(response)                     # tisk řetězce
+            if response == b'LED0H\n':          # porovnání řetězce se zprávou
                 print("Green ---> Blue [XX]")
                 self.__dev.write(b'LED1H\n')
                 self.__dev.flush()
